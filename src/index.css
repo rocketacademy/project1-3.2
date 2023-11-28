@@ -1,5 +1,9 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: InterVariable, Inter, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-feature-settings: "tnum" 1, "ss04" 1, "cv03" 1, "cv04" 1, "cv06" 1,
+    "cv11" 1;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -7,7 +11,6 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,4 +69,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+code {
+  font-family: "Roboto Mono", monospace, monospace;
 }
