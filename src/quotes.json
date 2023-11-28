@@ -1,0 +1,20 @@
+[
+  {
+    "text": "XXXX",
+    "author": "YYYY",
+    "feeling": "happy",
+    "topic": ""
+  },
+  {
+    "text": "WWWW",
+    "author": "ZZZZ",
+    "feeling": "sad",
+    "topic": ""
+  },
+  {
+    "text": "AAAA",
+    "author": "BBBB",
+    "feeling": "",
+    "topic": "coding"
+  }
+]

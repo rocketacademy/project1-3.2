@@ -1,13 +1,21 @@
 import logo from "/logo.png";
 import "./App.css";
-import Quote from "./components/RandomQuote/Quote";
-import UserInput from "./components/RandomQuote/UserInput";
+import Navbar from "./components/Navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/About/About";
+import QuoteWrapper from "./components/RandomQuote/QuoteWrapper";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
     <>
-      <UserInput />
-      <Quote />
+      <Navbar/>
+      <Routes>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/quote" element={<QuoteWrapper/>}/>
+        </Routes>
+
     </>
   );
 }
