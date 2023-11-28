@@ -3,7 +3,8 @@ import "./App.css";
 import MarketData from "./marketData";
 
 function App() {
-  const [ticker, setTicker] = useState("SPY");
+  const [symbol, setSymbol] = useState("MSFT");
+  const [query, setQuery] = useState("");
   return (
     <>
       <div>
@@ -19,9 +20,16 @@ function App() {
         <div>
           <h2>Price: </h2>
           <code>
-            <MarketData ticker={ticker} />
+            <MarketData ticker={symbol} />
           </code>
         </div>
+        <input
+          type="text"
+          placeholder="Type in Stock Symbol"
+          value={query}
+          onChange={(e) => setQuery(e.target.value.toUpperCase())}
+        />
+        <button onClick={() => setSymbol(query)}>Submit!</button>
       </div>
     </>
   );

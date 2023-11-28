@@ -26,7 +26,7 @@ const MarketData = ({ ticker }) => {
       }
     };
     fetchData();
-  }, [ticker]); // The empty dependency array ensures that this effect runs once when the component mounts
+  }, [ticker]);
 
   return (
     <div>

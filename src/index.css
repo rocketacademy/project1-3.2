@@ -73,4 +73,9 @@ button:focus-visible {
 
 code {
   font-family: "Roboto Mono", monospace, monospace;
+  pre {
+    font-family: "Roboto Mono", monospace, monospace;
+    font-size: 0.75rem;
+  }
+  text-align: left;
 }
