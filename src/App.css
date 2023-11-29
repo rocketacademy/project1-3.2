@@ -6,16 +6,14 @@
 }
 
 .logo {
-  height: 6em;
+  width: 30rem;
+  height: auto;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #ff5100);
 }
 
 @keyframes logo-spin {
@@ -33,10 +31,22 @@
   }
 }
 
-.card {
-  padding: 2em;
+.container {
+  * {
+    margin: 0em;
+    padding: 0em;
+  }
+  margin: 1em;
+  font-feature-settings: "tnum" 1, "ss04" 1, "cv03" 1, "cv04" 1, "cv06" 1,
+    "cv11" 0;
 }
 
-.read-the-docs {
-  color: #888;
+form {
+  input {
+    font-size: 1.125em;
+    margin: 0em 0.5em 0em 0.5em;
+  }
+  button {
+    margin: 0em 0.5em 0em 0.5em;
+  }
 }

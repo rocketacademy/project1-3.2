@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Data from "./utils";
+import logo from "/icons8-stock.svg";
 
 function App() {
   const [symbol, setSymbol] = useState("MSFT");
@@ -8,29 +9,21 @@ function App() {
   return (
     <>
       <div>
-        <img
-          width="480"
-          height="480"
-          src="https://img.icons8.com/doodle/480/apple-stocks.png"
-          alt="apple-stocks"
-        />
+        <img className="logo" src={logo} alt="apple-stocks" />
       </div>
       <h1>Jasper test project $420.69$</h1>
-      <div className="card">
-        <div>
-          <div>
-            <Data ticker={symbol} />
-          </div>
-        </div>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            placeholder="Type in Stock Symbol"
-            value={query}
-            onChange={(e) => setQuery(e.target.value.toUpperCase())}
-          />
-          <button onClick={() => setSymbol(query)}>Submit!</button>
-        </form>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input
+          type="text"
+          placeholder="Type in Stock Symbol"
+          value={query}
+          onKeyDown={(e) => e.key === "Enter" && setSymbol(query)}
+          onChange={(e) => setQuery(e.target.value.toUpperCase())}
+        />
+        <button onClick={() => setSymbol(query)}>Submit!</button>
+      </form>
+      <div className="container">
+        <Data ticker={symbol} />
       </div>
     </>
   );

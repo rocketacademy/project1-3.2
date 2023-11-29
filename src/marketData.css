@@ -1,0 +1,11 @@
+.stockLogo {
+  max-width: 6rem;
+  max-height: 6rem;
+  margin: 1rem;
+}
+.card {
+  text-align: left;
+  border: 1px;
+  border-color: #444444;
+  font-size: 1rem;
+}

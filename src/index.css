@@ -1,15 +1,13 @@
 :root {
   font-family: InterVariable, Inter, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
-  font-feature-settings: "tnum" 1, "ss04" 1, "cv03" 1, "cv04" 1, "cv06" 1,
-    "cv11" 1;
-
-  line-height: 1.5;
+  font-feature-settings: "ss04" 1, "cv06" 1, "cv11" 1;
+  line-height: 2;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #444444;
+  background-color: #ddd0c8;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -27,16 +25,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -71,10 +63,15 @@ button:focus-visible {
   }
 }
 
+@font-face {
+  font-family: "Geist Mono Variable";
+  src: url(./GeistMonoVariableVF.woff2);
+}
+
 code {
-  font-family: "Roboto Mono", monospace, monospace;
+  font-family: "Geist Mono Variable", monospace, monospace;
   pre {
-    font-family: "Roboto Mono", monospace, monospace;
+    font-family: "Geist Mono Variable", monospace, monospace;
     font-size: 0.75rem;
   }
   text-align: left;
