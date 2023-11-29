@@ -3,8 +3,8 @@ import axios from "axios";
 
 const MarketData = ({ ticker }) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const apiKey = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
 
   useEffect(() => {
@@ -48,6 +48,6 @@ export default MarketData;
 //   {
 //     headers: {
 //       "Content-Type": "application/json",
-//       // "Access-Control-Allow-Origin": "*",
+//       "Access-Control-Allow-Origin": "*",
 //     },
 //   };
