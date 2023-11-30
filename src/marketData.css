@@ -1,15 +1,14 @@
 .stockLogo {
-  max-width: 6rem;
-  max-height: 6rem;
+  max-width: 10rem;
+  max-height: 3.5rem;
   margin: 1rem;
 }
 
 .data {
-  color: #ddd0c8;
+  color: #eae7dd;
   padding-left: 2em;
   text-align: left;
   font-size: 1em;
-  /* font-family: "Geist Mono Variable"; */
 }
 
 iconify-icon {
@@ -21,10 +20,5 @@ iconify-icon {
 code {
   font-family: "Geist Mono Variable", monospace, monospace;
   margin: 5em;
-
-  pre {
-    font-family: "Geist Mono Variable", monospace, monospace;
-    font-size: 0.75rem;
-  }
   text-align: left;
 }

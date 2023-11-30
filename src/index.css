@@ -15,6 +15,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@font-face {
+  font-family: "Geist Mono Variable";
+  src: url(./GeistMonoVariableVF.woff2);
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -61,9 +66,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-@font-face {
-  font-family: "Geist Mono Variable";
-  src: url(./GeistMonoVariableVF.woff2);
 }
