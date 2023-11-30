@@ -42,8 +42,14 @@ const MarketData = ({ ticker }) => {
     fetchData();
   }, [ticker]);
 
+  // Not sure if i should do this
+  useEffect(() => {
+    setData(null);
+    setDetails(null);
+  }, [error]);
+
   const priceChange =
-    data && data.results && (data.results[0].c - data.results[0].o).toFixed(2);
+    data && data.results && (data.results[0].c - data.results[0].o).toFixed(4);
   const priceChangePercent =
     data &&
     data.results &&
@@ -65,19 +71,24 @@ const MarketData = ({ ticker }) => {
       {error && (
         <code>
           <br />
-          Error: {error}{" "}
           <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
-          <br />
+          {error} <br />
         </code>
       )}
       {details && data && data.results && (
         <div>
-          {/* Render your data here */}
+          {/* Render data here */}
           <div>
             <br />
             <p>
+              {/* check for url in name */}
               <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
-              {details.results.name}
+              {(details.results.homepage_url && (
+                <a href={details.results.homepage_url}>
+                  {details.results.name}
+                </a>
+              )) ??
+                details.results.name}
             </p>
             <p>
               <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
@@ -89,6 +100,7 @@ const MarketData = ({ ticker }) => {
               {details.results.currency_name.toUpperCase()}
             </p>
             <p>
+              {/* downtrend-arrow if negative, else uptrend */}
               {priceChange <= 0 ? (
                 <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
               ) : (

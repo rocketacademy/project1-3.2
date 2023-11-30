@@ -8,17 +8,11 @@
 .logo {
   width: 30rem;
   height: auto;
-  padding: 1.5em;
+  padding: 1em;
   will-change: filter;
   transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #ff5100);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  &:hover {
+    filter: drop-shadow(0 0 2em #ff5100);
   }
 }
 
@@ -34,59 +28,17 @@
   }
 }
 
-/* .title:hover {
-  transform: scale(1.5);
-} */
-
-.container {
-  margin: 4rem 0rem 4rem 0rem;
-  display: flex;
-  height: 20em;
-  width: 40em;
-}
-
-.card {
-  height: 25em;
-  width: 25em;
-  background-color: #99775c;
-  border-radius: 10px;
-  box-shadow: -1rem 0 3rem #1a1a1a;
-  margin-left: -3em;
-  transition: 0.4s ease-out;
-  position: relative;
-  left: 0em;
-}
-
-.card:not(:first-child) {
-  margin-left: -3em;
-}
-
-.card:hover {
-  transform: translateY(-20px);
-  transition: 0.4s ease-out;
-}
-
-.card:hover ~ .card {
-  position: relative;
-  left: 50px;
-  transition: 0.4s ease-out;
-}
-
 Button {
   font-family: InterVariable, Inter, "Helvetica Neue", Helvetica, Arial,
     sans-serif !important;
   background-color: #444444 !important;
   color: #ddd0c8 !important;
   will-change: filter;
-  transition: all 0.69s;
   iconify-icon {
-    height: 1.125em;
+    height: 1.125em !important;
   }
   &:hover {
-    filter: drop-shadow(0 0 2em #eae7dd);
+    filter: drop-shadow(0 0 2em #333333);
+    transition: all 0.69s;
   }
-}
-#filled-basic {
-  font-family: InterVariable, Inter, "Helvetica Neue", Helvetica, Arial,
-    sans-serif !important;
 }
