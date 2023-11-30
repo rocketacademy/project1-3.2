@@ -81,7 +81,7 @@ const MarketData = ({ ticker }) => {
           <div>
             <br />
             <p>
-              {/* check for url in name */}
+              {/* Name, also check for url */}
               <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
               {(details.results.homepage_url && (
                 <a href={details.results.homepage_url}>
@@ -91,10 +91,12 @@ const MarketData = ({ ticker }) => {
                 details.results.name}
             </p>
             <p>
+              {/* Ticker Name */}
               <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
               : {data.ticker}
             </p>
             <p>
+              {/* Closing Price */}
               <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
               : {data.results[0].c.toFixed(2)}{" "}
               {details.results.currency_name.toUpperCase()}
@@ -108,6 +110,7 @@ const MarketData = ({ ticker }) => {
               )}
               : {priceChangePercent}% (${priceChange})
             </p>
+            {/* check if logo exist */}
             {details.results.branding && (
               <img
                 className="stockLogo"

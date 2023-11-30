@@ -27,18 +27,3 @@
     color: #333333;
   }
 }
-
-Button {
-  font-family: InterVariable, Inter, "Helvetica Neue", Helvetica, Arial,
-    sans-serif !important;
-  background-color: #444444 !important;
-  color: #ddd0c8 !important;
-  will-change: filter;
-  iconify-icon {
-    height: 1.125em !important;
-  }
-  &:hover {
-    filter: drop-shadow(0 0 2em #333333);
-    transition: all 0.69s;
-  }
-}
