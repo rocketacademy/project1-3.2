@@ -3,12 +3,12 @@
   max-height: 6rem;
   margin: 1rem;
 }
-.card {
-  text-align: left;
-  border: 1px;
-  border-color: #444444;
-  font-size: 1em;
 
+.data {
+  color: #ddd0c8;
+  padding-left: 2em;
+  text-align: left;
+  font-size: 1em;
   /* font-family: "Geist Mono Variable"; */
 }
 
@@ -16,4 +16,15 @@ iconify-icon {
   font-size: 1.5em;
   width: 1.2em;
   height: 0.75em;
+}
+
+code {
+  font-family: "Geist Mono Variable", monospace, monospace;
+  margin: 5em;
+
+  pre {
+    font-family: "Geist Mono Variable", monospace, monospace;
+    font-size: 0.75rem;
+  }
+  text-align: left;
 }

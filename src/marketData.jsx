@@ -53,23 +53,28 @@ const MarketData = ({ ticker }) => {
     ).toFixed(2);
 
   return (
-    <div>
+    <div className="data">
       {loading && (
         <code>
+          <br />
           Loading...{" "}
           <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
+          <br />
         </code>
       )}
       {error && (
         <code>
+          <br />
           Error: {error}{" "}
           <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
+          <br />
         </code>
       )}
       {details && data && data.results && (
         <div>
           {/* Render your data here */}
-          <div className="card">
+          <div>
+            <br />
             <p>
               <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
               {details.results.name}
@@ -98,6 +103,7 @@ const MarketData = ({ ticker }) => {
                 alt="icon"
               />
             )}
+            <br />
           </div>
           {/* <code>
             <pre>{JSON.stringify(data, null, 2)}</pre>

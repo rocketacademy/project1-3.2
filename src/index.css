@@ -67,12 +67,3 @@ button:focus-visible {
   font-family: "Geist Mono Variable";
   src: url(./GeistMonoVariableVF.woff2);
 }
-
-code {
-  font-family: "Geist Mono Variable", monospace, monospace;
-  pre {
-    font-family: "Geist Mono Variable", monospace, monospace;
-    font-size: 0.75rem;
-  }
-  text-align: left;
-}
