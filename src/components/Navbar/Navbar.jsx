@@ -6,13 +6,10 @@ function Navbar() {
   return (
     <>
       <nav>
-        <Link className="title" to="/home">
+        <Link className="title" to="/">
           Home
         </Link>
         <ul>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
           <li>
             <NavLink to="/quote">Quote</NavLink>
           </li>
@@ -24,6 +21,9 @@ function Navbar() {
           </li>
           <li>
             <NavLink to="/featured">Featured</NavLink>
+          </li>
+          <li>
+            <NavLink to="/change-user">Change User</NavLink>
           </li>
         </ul>
       </nav>

@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Quote from './Quote'
 import UserInput from './UserInput'
+import { getWord, getWordFromTF } from '../../utils';
+import Modal from './Modal';
 
-function QuoteWrapper() {
+function QuoteWrapper({username, users, handleSaved, addViewedQuotes}) {
   const [feeling, setFeeling] = useState("");
   const [topic, setTopic] = useState("");
-  const [quote, setQuote] = useState({
-    text: "XXXX",
-    author: "YYYY",
-  });
+  const [quote, setQuote] = useState({});
+  const [saveThisQuote, setSaveThisQuote] = useState(false)
 
   const handleFeelingChange = (value) => {
     setFeeling(value);
@@ -18,33 +18,67 @@ function QuoteWrapper() {
     setTopic(value);
   };
 
-  let quotes = [];
-  async function loadQuotes() {
-    const response = await fetch("https://type.fit/api/quotes");
-    quotes = await response.json();
-  }
-  loadQuotes();
-
   const nextQuote = () => {
-    const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    setQuote(newQuote);
+    let category = []
+    if(feeling == "") {
+      category = [topic]
+    } else if (topic == ""){
+      category = [feeling]
+    } else {
+      category = [feeling, topic];
+    }
+    console.log("Searched for: " + category)
+    let newQuote = getWord(category)
+    setQuote(newQuote)
   };
+
+  const saveThis = () => {
+    setSaveThisQuote(true)
+    openModal();
+  }  
+
+  useEffect(() => { 
+    console.log("runs")
+    handleSaved(username, quote);
+  }, [saveThisQuote])
+
+  useEffect(() => {
+    addViewedQuotes(quote);
+  },[quote])
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => {
+    setShowModal(false);
+    setSaveThisQuote(false);
+  }
 
   return (
     <div className="quote-wrapper">
+      <h3>Hello, {username}</h3>
       <UserInput
         inputLabel="How are you feeling?"
-        selectedValue={feeling}
+        optionName="user-feeling"
         onDropdownChange={handleFeelingChange}
         options={["happy", "sad", "lazy"]}
       />
       <UserInput
         inputLabel="Choose a random topic"
-        selectedValue={topic}
+        optionName="user-topic"
         onDropdownChange={handleTopicChange}
         options={["coding", "exercise", "cooking"]}
       />
-      <Quote quote={quote.text} author={quote.author.split(",")[0]} nextQuote={nextQuote} />
+      <Quote
+        quote={quote.text}
+        author={quote.author}
+        nextQuote={nextQuote}
+        saveThis={saveThis}
+      />
+      <Modal showModal={showModal} closeModal={closeModal}>
+        <h2>Saved!</h2>
+      </Modal>
+      {console.log(saveThisQuote)}
     </div>
   );
 }

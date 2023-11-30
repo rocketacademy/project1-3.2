@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './Quote.css'
 
-function Quote({quote, author, nextQuote}) {
+function Quote({quote, author, nextQuote, saveThis}) {
   return (
     <>    
     <div className="quote-container">
@@ -11,8 +11,8 @@ function Quote({quote, author, nextQuote}) {
       <div className="quote-bottom">
         <div className="author">{author}</div>
         <div>
-          <button onClick={nextQuote}>Next</button>
-          <button>Save</button>
+          <button onClick={nextQuote}>Generate Quote</button>
+          <button onClick={saveThis}>Save</button>
         </div>
       </div>
     </div>

@@ -2,19 +2,31 @@
   {
     "text": "XXXX",
     "author": "YYYY",
-    "feeling": "happy",
-    "topic": ""
+    "category": ["happy"]
   },
   {
     "text": "WWWW",
     "author": "ZZZZ",
-    "feeling": "sad",
-    "topic": ""
+    "category": ["sad"]
   },
   {
     "text": "AAAA",
     "author": "BBBB",
-    "feeling": "",
-    "topic": "coding"
+    "category": ["coding"]
+  }, 
+  {
+    "text": "AAAA",
+    "author": "BBBB",
+    "category": ["happy", "coding"]
+  },
+  {
+    "text": "AAAA",
+    "author": "BBBB",
+    "category": ["happy", "coding"]
+  },
+  {
+    "text": "AAAA",
+    "author": "BBBB",
+    "category": []
   }
 ]
