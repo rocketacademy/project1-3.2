@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./marketData.css";
 
@@ -10,6 +10,7 @@ const MarketData = ({ ticker }) => {
   const API_KEY = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
 
   useEffect(() => {
+    setError(null);
     const fetchData = async () => {
       try {
         //First API call
@@ -42,9 +43,10 @@ const MarketData = ({ ticker }) => {
   }, [ticker]);
 
   const priceChange =
-    data && (data.results[0].c - data.results[0].o).toFixed(2);
+    data && data.results && (data.results[0].c - data.results[0].o).toFixed(2);
   const priceChangePercent =
     data &&
+    data.results &&
     (
       (100 * (data.results[0].c - data.results[0].o)) /
       data.results[0].c
@@ -54,17 +56,17 @@ const MarketData = ({ ticker }) => {
     <div>
       {loading && (
         <code>
-          Loading...
+          Loading...{" "}
           <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
         </code>
       )}
       {error && (
         <code>
-          Error: {error}
-          <iconify-icon icon="carbon:data-error"></iconify-icon>
+          Error: {error}{" "}
+          <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
         </code>
       )}
-      {data && details && (
+      {details && data && data.results && (
         <div>
           {/* Render your data here */}
           <div className="card">
@@ -73,26 +75,29 @@ const MarketData = ({ ticker }) => {
               {details.results.name}
             </p>
             <p>
-              <iconify-icon icon="material-symbols:currency-exchange"></iconify-icon>
+              <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
               : {data.ticker}
             </p>
             <p>
               <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
-              : ${data.results[0].c.toFixed(2)}
+              : {data.results[0].c.toFixed(2)}{" "}
+              {details.results.currency_name.toUpperCase()}
             </p>
             <p>
-              {priceChange < 0 ? (
-                <iconify-icon icon="ic:twotone-trending-down"></iconify-icon>
+              {priceChange <= 0 ? (
+                <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
               ) : (
-                <iconify-icon icon="ic:twotone-trending-up"></iconify-icon>
+                <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
               )}
               : {priceChangePercent}% (${priceChange})
             </p>
-            <img
-              className="stockLogo"
-              src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
-              alt="icon"
-            />
+            {details.results.branding && (
+              <img
+                className="stockLogo"
+                src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
+                alt="icon"
+              />
+            )}
           </div>
           {/* <code>
             <pre>{JSON.stringify(data, null, 2)}</pre>

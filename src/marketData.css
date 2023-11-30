@@ -7,5 +7,13 @@
   text-align: left;
   border: 1px;
   border-color: #444444;
-  font-size: 1rem;
+  font-size: 1em;
+
+  /* font-family: "Geist Mono Variable"; */
+}
+
+iconify-icon {
+  font-size: 1.5em;
+  width: 1.2em;
+  height: 0.75em;
 }
