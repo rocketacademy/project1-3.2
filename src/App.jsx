@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextField, Button, ButtonGroup } from "@mui/material";
 import { Stack, Container } from "@mui/system";
+import TickerCard from "./ticker-card";
 import logo from "/stock.svg";
-import TickerCard from "./TickerCard";
 import "./App.css";
 
 export default function App() {

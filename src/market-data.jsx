@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
-import "./MarketData.css";
+import "./market-data.css";
 
 export default function MarketData({ ticker, error, setError, index }) {
   const [data, setData] = useState(null);

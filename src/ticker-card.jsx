@@ -1,5 +1,5 @@
 import Box from "@mui/system/Box";
-import MarketData from "./MarketData";
+import MarketData from "./market-data.jsx";
 
 export default function TickerCard({ ticker, error, setError, index }) {
   return (
