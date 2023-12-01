@@ -4,26 +4,22 @@ import axios from "axios";
 import "./market-data.css";
 
 export default function MarketData({ ticker, error, setError, index }) {
-  const [data, setData] = useState(null);
-  const [details, setDetails] = useState(null);
+  const [pulledData, setPulledData] = useState(null);
+  const [pulledDetails, setPulledDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
-  //error state for individual cards
   const errorIndex = error[index];
-
   const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-    //clear out old data and error message to display new data
     setError((prev) => prev.toSpliced(index, 1, null));
-    setData(null);
-    setDetails(null);
-    //start pulling data from API
+    setPulledData(null);
+    setPulledDetails(null);
     setLoading(true);
-    const fetchData = async () => {
+    const fetchDataDetails = async () => {
       try {
         //First API call
-        const dataResponse = await axios.get(
+        const pulledDataResponse = await axios.get(
           `https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?`,
           {
             headers: {
@@ -31,9 +27,9 @@ export default function MarketData({ ticker, error, setError, index }) {
             },
           }
         );
-        setData(dataResponse.data);
+        setPulledData(pulledDataResponse.data);
         //Second API call
-        const detailResponse = await axios.get(
+        const pulledDetailResponse = await axios.get(
           `https://api.polygon.io/v3/reference/tickers/${ticker}`,
           {
             headers: {
@@ -41,38 +37,39 @@ export default function MarketData({ ticker, error, setError, index }) {
             },
           }
         );
-        setDetails(detailResponse.data);
+        setPulledDetails(pulledDetailResponse.data);
       } catch (error) {
         setError((prev) => prev.toSpliced(index, 1, error.message));
       } finally {
         setLoading(false);
       }
     };
-    fetchData();
+    fetchDataDetails();
     //why does eslint want me to put index and setError inside dependency array
   }, [ticker, refresh]); //eslint-disable-line
 
-  //clear out old data to display error message
   useEffect(() => {
-    setData(null);
-    setDetails(null);
+    setPulledData(null);
+    setPulledDetails(null);
   }, [errorIndex]);
 
   const priceChange = useMemo(
     () =>
-      data?.results ? (data.results[0].c - data.results[0].o).toFixed(4) : 0,
-    [data]
+      pulledData?.results
+        ? (pulledData.results[0].c - pulledData.results[0].o).toFixed(4)
+        : 0,
+    [pulledData]
   );
 
   const priceChangePercent = useMemo(
     () =>
-      data?.results
+      pulledData?.results
         ? (
-            (100 * (data.results[0].c - data.results[0].o)) /
-            data.results[0].c
+            (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
+            pulledData.results[0].c
           ).toFixed(2)
         : 0,
-    [data]
+    [pulledData]
   );
 
   return (
@@ -84,10 +81,10 @@ export default function MarketData({ ticker, error, setError, index }) {
       </div>
       {loading && <LoadingMessage />}
       {errorIndex && <ErrorMessage errorIndex={errorIndex} />}
-      {details && data?.results && (
+      {pulledDetails && pulledData?.results && (
         <DataDetailMessage
-          data={data}
-          details={details}
+          pulledData={pulledData}
+          pulledDetails={pulledDetails}
           priceChange={priceChange}
           priceChangePercent={priceChangePercent}
           API_KEY={API_KEY}
@@ -114,44 +111,41 @@ const ErrorMessage = ({ errorIndex }) => (
 );
 
 const DataDetailMessage = ({
-  data,
-  details,
+  pulledData,
+  pulledDetails,
   priceChange,
   priceChangePercent,
   API_KEY,
 }) => (
   <>
     <br />
-    {/* Render data here */}
     <ul>
       <li>
         {/* Name, also check for url */}
         <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
-        {(details?.results?.homepage_url && (
+        {(pulledDetails?.results?.homepage_url && (
           <a
-            href={details.results.homepage_url}
+            href={pulledDetails.results.homepage_url}
             target="_blank"
             rel="noreferrer"
           >
-            {details.results.name}
+            {pulledDetails.results.name}
           </a>
         )) ??
-          details.results.name}
+          pulledDetails.results.name}
       </li>
       <li>
         {/* Ticker Name */}
         <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
-        : {data.ticker}
+        : {pulledData.ticker}
       </li>
       <li>
-        {" "}
         {/* Closing Price */}
         <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
-        : {data.results[0].c.toFixed(2)}{" "}
-        {details.results.currency_name.toUpperCase()}
+        : {pulledData.results[0].c.toFixed(2)}{" "}
+        {pulledDetails.results.currency_name.toUpperCase()}
       </li>
       <li>
-        {" "}
         {/* downtrend-arrow if negative, else uptrend */}
         {priceChange <= 0 ? (
           <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
@@ -161,12 +155,11 @@ const DataDetailMessage = ({
         : {priceChangePercent}% (${priceChange})
       </li>
       <li>
-        {" "}
         {/* check if logo exist */}
-        {details?.results?.branding && (
+        {pulledDetails?.results?.branding && (
           <img
             className="stockLogo"
-            src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
+            src={`${pulledDetails.results.branding.logo_url}?apiKey=${API_KEY}`}
             alt="icon"
           />
         )}
