@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextField, Button, ButtonGroup } from "@mui/material";
-import { Stack, Container, Box } from "@mui/system";
+import { Stack, Container } from "@mui/system";
 import logo from "/stock.svg";
-import MarketData from "./marketData";
+import TickerCard from "./TickerCard";
 import "./App.css";
 
 function App() {
@@ -11,62 +11,31 @@ function App() {
 
   const queryButton = (index) => (
     <Button
+      key={index}
+      onClick={() =>
+        query && setSymbol((prev) => prev.toSpliced(index, 1, query))
+      }
       sx={{
         fontFamily: "InterVariable",
         bgcolor: "#444444",
         color: "#ddd0c8",
-        "will-change": "filter",
+        willChange: "filter",
         "&:hover": {
           filter: "drop-shadow(0 0 2em #333333)",
           transition: "all 0.69s",
         },
         "iconify-icon": {
-          height: "1.125em",
+          height: "1em",
         },
       }}
-      key={index}
-      onClick={() => setSymbol((prev) => prev.toSpliced(index, 1, query))}
     >
       Query<iconify-icon icon="line-md:upload-loop"></iconify-icon>
     </Button>
   );
 
-  const tickerCard = (ticker, index) => (
-    <Box
-      key={index}
-      height="25em"
-      width="16em"
-      bgcolor="#99775c"
-      borderRadius="0.75em"
-      boxShadow="-1em 0 3em #1a1a1a"
-      ml="0.75em"
-      left="0em"
-      position="relative"
-      sx={{
-        transition: "0.4s ease-out",
-        "&:not(:first-child)": {
-          ml: "-3em",
-        },
-        "&:hover": {
-          transform: "translateY(-1.25em)",
-          transition: "0.4s ease-out",
-        },
-        "&:hover ~ &": {
-          position: "relative",
-          left: "3.125em",
-          transition: "0.4s ease-out",
-        },
-      }}
-    >
-      <MarketData ticker={ticker} />
-    </Box>
-  );
-
   return (
     <>
-      <div>
-        <img className="logo" src={logo} alt="apple-stocks" />
-      </div>
+      <img className="logo" src={logo} alt="apple-stocks" />
       <h1 className="title">📈 PriceQuery Project 📉</h1>
       <Stack
         direction="row"
@@ -103,7 +72,7 @@ function App() {
           width: "45em",
         }}
       >
-        {symbol.map((ticker, index) => tickerCard(ticker, index))}
+        {symbol.map((ticker, index) => TickerCard(ticker, index))}
       </Container>
     </>
   );
