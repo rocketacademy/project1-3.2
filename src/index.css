@@ -15,7 +15,7 @@
 }
 
 a {
-  color: #001233;
+  color: #333333;
   text-decoration: inherit;
   &:hover {
     text-decoration: underline;

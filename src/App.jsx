@@ -6,7 +6,7 @@ import TickerCard from "./TickerCard";
 import "./App.css";
 
 export default function App() {
-  const [symbol, setSymbol] = useState(["AAPL", "MSFT", "GOOG"]);
+  const [ticker, setTicker] = useState(["AAPL", "MSFT", "GOOG"]);
   const [query, setQuery] = useState("");
 
   //Lifted from MarketData.jsx to App.jsx
@@ -16,7 +16,7 @@ export default function App() {
     <Button
       key={index} //bad practice
       onClick={() =>
-        query && setSymbol((prev) => prev.toSpliced(index, 1, query))
+        query && setTicker((prev) => prev.toSpliced(index, 1, query))
       }
       sx={{
         fontFamily: "Geist Variable",
@@ -80,7 +80,7 @@ export default function App() {
           maxWidth: "48em",
         }}
       >
-        {symbol.map((ticker, index) => (
+        {ticker.map((ticker, index) => (
           <TickerCard
             ticker={ticker}
             key={index} //bad practice

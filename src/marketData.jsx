@@ -14,11 +14,10 @@ export default function MarketData({ ticker, error, setError, index }) {
   const API_KEY = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
 
   useEffect(() => {
-    //clear out old data
+    //clear out old data and error message to display new data
     setError((prev) => prev.toSpliced(index, 1, null));
     setData(null);
     setDetails(null);
-
     //start pulling data from API
     setLoading(true);
     const fetchData = async () => {
@@ -53,6 +52,7 @@ export default function MarketData({ ticker, error, setError, index }) {
     //why does eslint want me to put index and setError inside dependency array
   }, [ticker, refresh]); //eslint-disable-line
 
+  //clear out old data to display error message
   useEffect(() => {
     setData(null);
     setDetails(null);
@@ -75,31 +75,36 @@ export default function MarketData({ ticker, error, setError, index }) {
           <iconify-icon icon="line-md:rotate-270"></iconify-icon>
         </IconButton>
       </div>
-
       {loading && (
-        <p className="errorAndLoading">
+        <div className="errorAndLoading">
           <br />
           Loading...{" "}
           <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
           <br />
-        </p>
+        </div>
       )}
       {errorIndex && (
-        <p className="errorAndLoading">
+        <div className="errorAndLoading">
           <br />
           <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
           {errorIndex} <br />
-        </p>
+        </div>
       )}
       {details && data && data.results && (
-        <div className="rendered">
+        <div>
           <br />
           {/* Render data here */}
           <p>
             {/* Name, also check for url */}
             <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
             {(details.results.homepage_url && (
-              <a href={details.results.homepage_url}>{details.results.name}</a>
+              <a
+                href={details.results.homepage_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {details.results.name}
+              </a>
             )) ??
               details.results.name}
           </p>
@@ -131,7 +136,6 @@ export default function MarketData({ ticker, error, setError, index }) {
               alt="icon"
             />
           )}
-
           <br />
         </div>
       )}
