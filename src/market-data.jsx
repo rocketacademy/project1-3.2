@@ -60,7 +60,7 @@ export default function MarketData({ ticker, error, setError, index }) {
 
   const priceChange = useMemo(
     () =>
-      data?.results ? (data.results[0].c - data.results[0].o).toFixed(4) : null,
+      data?.results ? (data.results[0].c - data.results[0].o).toFixed(4) : 0,
     [data]
   );
 
@@ -71,7 +71,7 @@ export default function MarketData({ ticker, error, setError, index }) {
             (100 * (data.results[0].c - data.results[0].o)) /
             data.results[0].c
           ).toFixed(2)
-        : null,
+        : 0,
     [data]
   );
 
@@ -123,44 +123,55 @@ const DataDetailMessage = ({
   <>
     <br />
     {/* Render data here */}
-    <p>
-      {/* Name, also check for url */}
-      <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
-      {(details?.results?.homepage_url && (
-        <a href={details.results.homepage_url} target="_blank" rel="noreferrer">
-          {details.results.name}
-        </a>
-      )) ??
-        details.results.name}
-    </p>
-    <p>
-      {/* Ticker Name */}
-      <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
-      : {data.ticker}
-    </p>
-    <p>
-      {/* Closing Price */}
-      <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
-      : {data.results[0].c.toFixed(2)}{" "}
-      {details.results.currency_name.toUpperCase()}
-    </p>
-    <p>
-      {/* downtrend-arrow if negative, else uptrend */}
-      {priceChange <= 0 ? (
-        <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
-      ) : (
-        <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
-      )}
-      : {priceChangePercent}% (${priceChange})
-    </p>
-    {/* check if logo exist */}
-    {details?.results?.branding && (
-      <img
-        className="stockLogo"
-        src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
-        alt="icon"
-      />
-    )}
+    <ul>
+      <li>
+        {/* Name, also check for url */}
+        <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
+        {(details?.results?.homepage_url && (
+          <a
+            href={details.results.homepage_url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {details.results.name}
+          </a>
+        )) ??
+          details.results.name}
+      </li>
+      <li>
+        {/* Ticker Name */}
+        <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
+        : {data.ticker}
+      </li>
+      <li>
+        {" "}
+        {/* Closing Price */}
+        <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
+        : {data.results[0].c.toFixed(2)}{" "}
+        {details.results.currency_name.toUpperCase()}
+      </li>
+      <li>
+        {" "}
+        {/* downtrend-arrow if negative, else uptrend */}
+        {priceChange <= 0 ? (
+          <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
+        ) : (
+          <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
+        )}
+        : {priceChangePercent}% (${priceChange})
+      </li>
+      <li>
+        {" "}
+        {/* check if logo exist */}
+        {details?.results?.branding && (
+          <img
+            className="stockLogo"
+            src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
+            alt="icon"
+          />
+        )}
+      </li>
+    </ul>
     <br />
   </>
 );
