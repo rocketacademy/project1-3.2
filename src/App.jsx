@@ -5,7 +5,7 @@ import logo from "/stock.svg";
 import TickerCard from "./TickerCard";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [symbol, setSymbol] = useState(["AAPL", "MSFT", "GOOG"]);
   const [query, setQuery] = useState("");
 
@@ -14,7 +14,7 @@ function App() {
 
   const queryButton = (index) => (
     <Button
-      key={index}
+      key={index} //bad practice
       onClick={() =>
         query && setSymbol((prev) => prev.toSpliced(index, 1, query))
       }
@@ -76,14 +76,14 @@ function App() {
         sx={{
           my: "4em",
           display: "flex",
-          height: "25em",
-          width: "45em",
+          height: "26em",
+          maxWidth: "48em",
         }}
       >
         {symbol.map((ticker, index) => (
           <TickerCard
             ticker={ticker}
-            key={index}
+            key={index} //bad practice
             index={index}
             error={error}
             setError={setError}
@@ -93,5 +93,3 @@ function App() {
     </>
   );
 }
-
-export default App;

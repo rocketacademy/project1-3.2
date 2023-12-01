@@ -1,21 +1,31 @@
 import { useState, useEffect } from "react";
+import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import "./MarketData.css";
 
-const MarketData = ({ ticker, error, setError, index }) => {
+export default function MarketData({ ticker, error, setError, index }) {
   const [data, setData] = useState(null);
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const API_KEY = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
+  const [refresh, setRefresh] = useState(false);
+  //error state for individual cards
   const errorIndex = error[index];
 
+  const API_KEY = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
+
   useEffect(() => {
+    //clear out old data
     setError((prev) => prev.toSpliced(index, 1, null));
+    setData(null);
+    setDetails(null);
+
+    //start pulling data from API
+    setLoading(true);
     const fetchData = async () => {
       try {
         //First API call
         const dataResponse = await axios.get(
-          `https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?adjusted=true`,
+          `https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?`,
           {
             headers: {
               Authorization: `Bearer ${API_KEY}`,
@@ -40,9 +50,9 @@ const MarketData = ({ ticker, error, setError, index }) => {
       }
     };
     fetchData();
-  }, [ticker]); //why does vscode complain i need to add index and setError in my dependency array
+    //why does eslint want me to put index and setError inside dependency array
+  }, [ticker, refresh]); //eslint-disable-line
 
-  // Not sure if i should do this
   useEffect(() => {
     setData(null);
     setDetails(null);
@@ -60,23 +70,29 @@ const MarketData = ({ ticker, error, setError, index }) => {
 
   return (
     <div className="data">
+      <div id="refresh">
+        <IconButton aria-label="refresh" onClick={() => setRefresh(!refresh)}>
+          <iconify-icon icon="line-md:rotate-270"></iconify-icon>
+        </IconButton>
+      </div>
+
       {loading && (
-        <code>
+        <p className="errorAndLoading">
           <br />
           Loading...{" "}
           <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
           <br />
-        </code>
+        </p>
       )}
       {errorIndex && (
-        <code>
+        <p className="errorAndLoading">
           <br />
           <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
           {errorIndex} <br />
-        </code>
+        </p>
       )}
       {details && data && data.results && (
-        <div>
+        <div className="rendered">
           <br />
           {/* Render data here */}
           <p>
@@ -115,11 +131,10 @@ const MarketData = ({ ticker, error, setError, index }) => {
               alt="icon"
             />
           )}
+
           <br />
         </div>
       )}
     </div>
   );
-};
-
-export default MarketData;
+}

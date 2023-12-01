@@ -1,10 +1,10 @@
 import Box from "@mui/system/Box";
 import MarketData from "./MarketData";
 
-const TickerCard = ({ ticker, error, setError, index }) => {
+export default function TickerCard({ ticker, error, setError, index }) {
   return (
     <Box
-      height="25em"
+      height="26em"
       width="16em"
       bgcolor="#99775c"
       borderRadius="0.75em"
@@ -36,6 +36,4 @@ const TickerCard = ({ ticker, error, setError, index }) => {
       />
     </Box>
   );
-};
-
-export default TickerCard;
+}
