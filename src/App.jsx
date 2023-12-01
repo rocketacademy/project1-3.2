@@ -12,9 +12,8 @@ export default function App() {
   //Lifted from MarketData.jsx to App.jsx
   const [error, setError] = useState([null, null, null]);
 
-  const queryButton = (index) => (
+  const QueryButton = (index) => (
     <Button
-      key={index} //bad practice
       onClick={() =>
         query && setTicker((prev) => prev.toSpliced(index, 1, query))
       }
@@ -69,7 +68,7 @@ export default function App() {
           aria-label="outlined primary button group"
           color="grey"
         >
-          {[...Array(3)].map((ignored, index) => queryButton(index))}
+          {[...Array(3)].map((ignored, index) => QueryButton(index))}
         </ButtonGroup>
       </Stack>
       <Container

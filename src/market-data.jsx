@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import "./market-data.css";
@@ -11,7 +11,7 @@ export default function MarketData({ ticker, error, setError, index }) {
   //error state for individual cards
   const errorIndex = error[index];
 
-  const API_KEY = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     //clear out old data and error message to display new data
@@ -58,15 +58,22 @@ export default function MarketData({ ticker, error, setError, index }) {
     setDetails(null);
   }, [errorIndex]);
 
-  const priceChange =
-    data && data.results && (data.results[0].c - data.results[0].o).toFixed(4);
-  const priceChangePercent =
-    data &&
-    data.results &&
-    (
-      (100 * (data.results[0].c - data.results[0].o)) /
-      data.results[0].c
-    ).toFixed(2);
+  const priceChange = useMemo(
+    () =>
+      data?.results ? (data.results[0].c - data.results[0].o).toFixed(4) : null,
+    [data]
+  );
+
+  const priceChangePercent = useMemo(
+    () =>
+      data?.results
+        ? (
+            (100 * (data.results[0].c - data.results[0].o)) /
+            data.results[0].c
+          ).toFixed(2)
+        : null,
+    [data]
+  );
 
   return (
     <div className="data">
@@ -75,70 +82,85 @@ export default function MarketData({ ticker, error, setError, index }) {
           <iconify-icon icon="line-md:rotate-270"></iconify-icon>
         </IconButton>
       </div>
-      {loading && (
-        <div className="errorAndLoading">
-          <br />
-          Loading...{" "}
-          <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
-          <br />
-        </div>
-      )}
-      {errorIndex && (
-        <div className="errorAndLoading">
-          <br />
-          <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
-          {errorIndex} <br />
-        </div>
-      )}
-      {details && data && data.results && (
-        <div>
-          <br />
-          {/* Render data here */}
-          <p>
-            {/* Name, also check for url */}
-            <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
-            {(details.results.homepage_url && (
-              <a
-                href={details.results.homepage_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {details.results.name}
-              </a>
-            )) ??
-              details.results.name}
-          </p>
-          <p>
-            {/* Ticker Name */}
-            <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
-            : {data.ticker}
-          </p>
-          <p>
-            {/* Closing Price */}
-            <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
-            : {data.results[0].c.toFixed(2)}{" "}
-            {details.results.currency_name.toUpperCase()}
-          </p>
-          <p>
-            {/* downtrend-arrow if negative, else uptrend */}
-            {priceChange <= 0 ? (
-              <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
-            ) : (
-              <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
-            )}
-            : {priceChangePercent}% (${priceChange})
-          </p>
-          {/* check if logo exist */}
-          {details.results.branding && (
-            <img
-              className="stockLogo"
-              src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
-              alt="icon"
-            />
-          )}
-          <br />
-        </div>
+      {loading && <LoadingMessage />}
+      {errorIndex && <ErrorMessage errorIndex={errorIndex} />}
+      {details && data?.results && (
+        <DataDetailMessage
+          data={data}
+          details={details}
+          priceChange={priceChange}
+          priceChangePercent={priceChangePercent}
+          API_KEY={API_KEY}
+        />
       )}
     </div>
   );
 }
+
+const LoadingMessage = () => (
+  <div className="errorAndLoading">
+    <br />
+    Loading... <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
+    <br />
+  </div>
+);
+
+const ErrorMessage = ({ errorIndex }) => (
+  <div className="errorAndLoading">
+    <br />
+    <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
+    {errorIndex} <br />
+  </div>
+);
+
+const DataDetailMessage = ({
+  data,
+  details,
+  priceChange,
+  priceChangePercent,
+  API_KEY,
+}) => (
+  <>
+    <br />
+    {/* Render data here */}
+    <p>
+      {/* Name, also check for url */}
+      <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
+      {(details?.results?.homepage_url && (
+        <a href={details.results.homepage_url} target="_blank" rel="noreferrer">
+          {details.results.name}
+        </a>
+      )) ??
+        details.results.name}
+    </p>
+    <p>
+      {/* Ticker Name */}
+      <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
+      : {data.ticker}
+    </p>
+    <p>
+      {/* Closing Price */}
+      <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
+      : {data.results[0].c.toFixed(2)}{" "}
+      {details.results.currency_name.toUpperCase()}
+    </p>
+    <p>
+      {/* downtrend-arrow if negative, else uptrend */}
+      {priceChange <= 0 ? (
+        <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
+      ) : (
+        <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
+      )}
+      : {priceChangePercent}% (${priceChange})
+    </p>
+    {/* check if logo exist */}
+    {details?.results?.branding && (
+      <img
+        className="stockLogo"
+        src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
+        alt="icon"
+      />
+    )}
+    <br />
+  </>
+);
