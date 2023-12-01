@@ -1,32 +1,37 @@
 [
   {
-    "text": "XXXX",
-    "author": "YYYY",
-    "category": ["happy"]
-  },
-  {
-    "text": "WWWW",
-    "author": "ZZZZ",
+    "text": "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
+    "author": "Thomas A. Edison",
     "category": ["sad"]
   },
   {
-    "text": "AAAA",
-    "author": "BBBB",
+    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
+    "author": "C.S. Lewis",
+    "category": ["sad"]
+  },
+  {
+    "text": "Even the darkest night will end and the sun will rise.",
+    "author": "C.S. Lewis",
+    "category": ["Les Misérables"]
+  },
+  {
+    "text": "Always code as if the person who ends up maintaining your code will be a violent psychopath who knows where you live.",
+    "author": "Unknown",
     "category": ["coding"]
-  }, 
-  {
-    "text": "AAAA",
-    "author": "BBBB",
-    "category": ["happy", "coding"]
   },
   {
-    "text": "AAAA",
-    "author": "BBBB",
-    "category": ["happy", "coding"]
+    "text": "Give someone a program; you frustrate them for a day; teach them how to program, and you frustrate them for a lifetime",
+    "author": "David Leinweber",
+    "category": ["coding"]
   },
   {
-    "text": "AAAA",
-    "author": "BBBB",
-    "category": []
+    "text": "If the code doesn't bother you, don't bother it.",
+    "author": "Unknown",
+    "category": ["coding"]
+  },
+  {
+    "text": "You never finish a program, you just stop working on it.",
+    "author": "Unknown",
+    "category": ["coding"]
   }
 ]

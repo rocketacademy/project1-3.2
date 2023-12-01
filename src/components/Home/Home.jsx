@@ -19,7 +19,11 @@ function Home({addUser, user, changeCurrUser}) {
     <div>Hello, What is your name?</div>
     <input type="text" onChange={(e) => handleChange(e)}></input>
     <button onClick={greetUser}>Submit</button>
-    {showGreet && <h3>Hello, {user}</h3>}
+    {showGreet? 
+    <div>
+      <h3>Hello, {user}. Let's get inspired!</h3>
+      <p>Click "Quote" to Begin! </p>
+    </div> : null}
     </>
   )
 }

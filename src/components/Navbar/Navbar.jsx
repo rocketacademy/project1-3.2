@@ -20,7 +20,7 @@ function Navbar() {
             <NavLink to="/saved">Saved</NavLink>
           </li>
           <li>
-            <NavLink to="/featured">Featured</NavLink>
+            <NavLink to="/viewed">Viewed</NavLink>
           </li>
           <li>
             <NavLink to="/change-user">Change User</NavLink>

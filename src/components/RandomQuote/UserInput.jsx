@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./UserInput.css"
 import { useState } from "react";
 
 function UserInput({inputLabel, optionName, onDropdownChange, options}) {
@@ -15,18 +14,18 @@ function UserInput({inputLabel, optionName, onDropdownChange, options}) {
 
   return (
     <div>
-      <label>{inputLabel}: </label>
-      <select
-        name={optionName}
-        value={selectedOption}
-        onChange={handleChange}>
+      <label>{inputLabel}</label>
+      <div>      
+        <select name={optionName} value={selectedOption} onChange={handleChange}>
         <option value="">Select an Option</option>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}
           </option>
         ))}
-      </select>
+      </select></div>
+
+
     </div>
   );
 }

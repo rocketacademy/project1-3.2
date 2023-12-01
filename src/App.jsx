@@ -9,7 +9,7 @@ import {getWord} from "./utils.jsx";
 import ChangeUser from "./components/ChangeUser/ChangeUser.jsx";
 import Create from "./components/Create/Create.jsx";
 import Saved from "./components/Saved/Saved.jsx";
-import Featured from "./components/Featured/Featured.jsx";
+import Viewed from "./components/Viewed/Viewed.jsx";
 
 function App() {
   const [users, setUsers] = useState([
@@ -27,7 +27,7 @@ function App() {
     }])
   }
 
-  const addViewedQuotes = (quote) => {
+  const addViewedQuotes = (quote) => { 
     setViewedQuotes([...viewedQuotes, quote])
   }
 
@@ -40,6 +40,16 @@ function App() {
       users.map((user) =>
         user.username === username
           ? { ...user, saved: [...user.saved, quote] }
+          : user
+      )
+    );
+  }
+
+  const handleCreate = (username, quote) => {
+    setUsers(
+      users.map((user) =>
+        user.username === username
+          ? { ...user, created: [...user.created, quote] }
           : user
       )
     );
@@ -70,14 +80,17 @@ function App() {
             />
           }
         />
-        <Route path="/create" element={<Create username={currUser} />} />
+        <Route
+          path="/create"
+          element={<Create username={currUser} handleCreate={handleCreate} />}
+        />
         <Route
           path="/saved"
           element={<Saved username={currUser} users={users} />}
         />
         <Route
-          path="/featured"
-          element={<Featured viewedQuotes={viewedQuotes} />}
+          path="/viewed"
+          element={<Viewed username={currUser} viewedQuotes={viewedQuotes} />}
         />
         <Route
           path="/change-user"

@@ -4,7 +4,8 @@ import './Quote.css'
 
 function Quote({quote, author, nextQuote, saveThis}) {
   return (
-    <>    
+    <> 
+    <h3>Here's a nice quote for you...</h3>   
     <div className="quote-container">
       <div className="quote-text">{quote}</div>
       <div className="quote-line"></div>
