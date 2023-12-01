@@ -32,10 +32,10 @@ body {
 
 @font-face {
   font-family: "Geist Mono Variable";
-  src: url(./GeistMonoVariableVF.woff2);
+  src: url(/GeistMonoVariableVF.woff2);
 }
 
 @font-face {
   font-family: "Geist Variable";
-  src: url(./GeistVariableVF.woff2);
+  src: url(/GeistVariableVF.woff2);
 }
