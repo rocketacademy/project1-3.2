@@ -19,6 +19,11 @@
   src: url(./GeistMonoVariableVF.woff2);
 }
 
+@font-face {
+  font-family: "Geist Variable";
+  src: url(./GeistVariableVF.woff2);
+}
+
 a {
   color: #ffffff;
   text-decoration: inherit;

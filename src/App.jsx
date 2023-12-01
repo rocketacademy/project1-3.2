@@ -9,6 +9,9 @@ function App() {
   const [symbol, setSymbol] = useState(["AAPL", "MSFT", "GOOG"]);
   const [query, setQuery] = useState("");
 
+  //Lifted from MarketData.jsx to App.jsx
+  const [error, setError] = useState([null, null, null]);
+
   const queryButton = (index) => (
     <Button
       key={index}
@@ -16,7 +19,7 @@ function App() {
         query && setSymbol((prev) => prev.toSpliced(index, 1, query))
       }
       sx={{
-        fontFamily: "InterVariable",
+        fontFamily: "Geist Variable",
         bgcolor: "#444444",
         color: "#ddd0c8",
         willChange: "filter",
@@ -45,6 +48,7 @@ function App() {
         flexWrap="wrap"
       >
         <TextField
+          error={error.some((element) => element !== null)}
           value={query}
           onChange={(e) => setQuery(e.target.value.toUpperCase())}
           id="tickerInput"
@@ -54,8 +58,12 @@ function App() {
           color="grey"
           sx={{
             width: "21em",
+            "*": {
+              fontFamily: "Geist Variable",
+            },
           }}
         />
+
         <ButtonGroup
           variant="contained"
           aria-label="outlined primary button group"
@@ -72,7 +80,15 @@ function App() {
           width: "45em",
         }}
       >
-        {symbol.map((ticker, index) => TickerCard(ticker, index))}
+        {symbol.map((ticker, index) => (
+          <TickerCard
+            ticker={ticker}
+            key={index}
+            index={index}
+            error={error}
+            setError={setError}
+          />
+        ))}
       </Container>
     </>
   );

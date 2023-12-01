@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./marketData.css";
+import "./MarketData.css";
 
-const MarketData = ({ ticker }) => {
+const MarketData = ({ ticker, error, setError, index }) => {
   const [data, setData] = useState(null);
   const [details, setDetails] = useState(null);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const API_KEY = "7M_4Op4aK53QJDYuqbJEYoV1o_qkm3Uf";
+  const errorIndex = error[index];
 
   useEffect(() => {
-    setError(null);
+    setError((prev) => prev.toSpliced(index, 1, null));
     const fetchData = async () => {
       try {
         //First API call
-        const marketDataResponse = await axios.get(
+        const dataResponse = await axios.get(
           `https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?adjusted=true`,
           {
             headers: {
@@ -22,9 +22,9 @@ const MarketData = ({ ticker }) => {
             },
           }
         );
-        setData(marketDataResponse.data);
+        setData(dataResponse.data);
         //Second API call
-        const tickerResponse = await axios.get(
+        const detailResponse = await axios.get(
           `https://api.polygon.io/v3/reference/tickers/${ticker}`,
           {
             headers: {
@@ -32,21 +32,21 @@ const MarketData = ({ ticker }) => {
             },
           }
         );
-        setDetails(tickerResponse.data);
+        setDetails(detailResponse.data);
       } catch (error) {
-        setError(error.message);
+        setError((prev) => prev.toSpliced(index, 1, error.message));
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, [ticker]);
+  }, [ticker]); //why does vscode complain i need to add index and setError in my dependency array
 
   // Not sure if i should do this
   useEffect(() => {
     setData(null);
     setDetails(null);
-  }, [error]);
+  }, [errorIndex]);
 
   const priceChange =
     data && data.results && (data.results[0].c - data.results[0].o).toFixed(4);
@@ -68,62 +68,54 @@ const MarketData = ({ ticker }) => {
           <br />
         </code>
       )}
-      {error && (
+      {errorIndex && (
         <code>
           <br />
           <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
-          {error} <br />
+          {errorIndex} <br />
         </code>
       )}
       {details && data && data.results && (
         <div>
+          <br />
           {/* Render data here */}
-          <div>
-            <br />
-            <p>
-              {/* Name, also check for url */}
-              <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
-              {(details.results.homepage_url && (
-                <a href={details.results.homepage_url}>
-                  {details.results.name}
-                </a>
-              )) ??
-                details.results.name}
-            </p>
-            <p>
-              {/* Ticker Name */}
-              <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
-              : {data.ticker}
-            </p>
-            <p>
-              {/* Closing Price */}
-              <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
-              : {data.results[0].c.toFixed(2)}{" "}
-              {details.results.currency_name.toUpperCase()}
-            </p>
-            <p>
-              {/* downtrend-arrow if negative, else uptrend */}
-              {priceChange <= 0 ? (
-                <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
-              ) : (
-                <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
-              )}
-              : {priceChangePercent}% (${priceChange})
-            </p>
-            {/* check if logo exist */}
-            {details.results.branding && (
-              <img
-                className="stockLogo"
-                src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
-                alt="icon"
-              />
+          <p>
+            {/* Name, also check for url */}
+            <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
+            {(details.results.homepage_url && (
+              <a href={details.results.homepage_url}>{details.results.name}</a>
+            )) ??
+              details.results.name}
+          </p>
+          <p>
+            {/* Ticker Name */}
+            <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
+            : {data.ticker}
+          </p>
+          <p>
+            {/* Closing Price */}
+            <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
+            : {data.results[0].c.toFixed(2)}{" "}
+            {details.results.currency_name.toUpperCase()}
+          </p>
+          <p>
+            {/* downtrend-arrow if negative, else uptrend */}
+            {priceChange <= 0 ? (
+              <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
+            ) : (
+              <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
             )}
-            <br />
-          </div>
-          {/* <code>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-            <pre>{JSON.stringify(details, null, 2)}</pre>
-          </code> */}
+            : {priceChangePercent}% (${priceChange})
+          </p>
+          {/* check if logo exist */}
+          {details.results.branding && (
+            <img
+              className="stockLogo"
+              src={`${details.results.branding.logo_url}?apiKey=${API_KEY}`}
+              alt="icon"
+            />
+          )}
+          <br />
         </div>
       )}
     </div>
