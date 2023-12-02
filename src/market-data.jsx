@@ -1,7 +1,9 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import "./market-data.css";
+
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default function MarketData({ ticker, error, setError, index }) {
   const [pulledData, setPulledData] = useState(null);
@@ -9,7 +11,6 @@ export default function MarketData({ ticker, error, setError, index }) {
   const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
   const errorIndex = error[index];
-  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     setError((prev) => prev.toSpliced(index, 1, null));
@@ -53,24 +54,16 @@ export default function MarketData({ ticker, error, setError, index }) {
     setPulledDetails(null);
   }, [errorIndex]);
 
-  const priceChange = useMemo(
-    () =>
-      pulledData?.results
-        ? (pulledData.results[0].c - pulledData.results[0].o).toFixed(4)
-        : 0,
-    [pulledData]
-  );
+  const priceChange = pulledData?.results
+    ? (pulledData.results[0].c - pulledData.results[0].o).toFixed(4)
+    : 0;
 
-  const priceChangePercent = useMemo(
-    () =>
-      pulledData?.results
-        ? (
-            (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
-            pulledData.results[0].c
-          ).toFixed(2)
-        : 0,
-    [pulledData]
-  );
+  const priceChangePercent = pulledData?.results
+    ? (
+        (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
+        pulledData.results[0].c
+      ).toFixed(2)
+    : 0;
 
   return (
     <div className="data">
@@ -160,7 +153,7 @@ const DataDetailMessage = ({
           <img
             className="stockLogo"
             src={`${pulledDetails.results.branding.logo_url}?apiKey=${API_KEY}`}
-            alt="icon"
+            alt="logo"
           />
         )}
       </li>
