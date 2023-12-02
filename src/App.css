@@ -6,25 +6,20 @@
 }
 
 .logo {
+  margin-bottom: -3rem;
   width: 30rem;
   height: auto;
   will-change: filter;
   transition: all 0.69s;
   &:hover {
+    transform: scale(1.125);
     filter: drop-shadow(0 0 2em #ff5100);
   }
 }
 
 .title {
-  margin-top: -1rem;
-  margin-bottom: 4rem;
   font-size: 4rem;
   font-weight: 800;
-  transition: all 0.69s;
-  &:hover {
-    transform: scale(1.125);
-    color: #333333;
-  }
 }
 
 .plus-minus {
