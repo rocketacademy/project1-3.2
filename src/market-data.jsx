@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
+// import { useQuery } from "@tanstack/react-query";
 import "./market-data.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -46,7 +47,6 @@ export default function MarketData({ ticker, error, setError, index }) {
       }
     };
     fetchDataDetails();
-    //why does eslint want me to put index and setError inside dependency array
   }, [ticker, refresh]); //eslint-disable-line
 
   useEffect(() => {
@@ -54,21 +54,24 @@ export default function MarketData({ ticker, error, setError, index }) {
     setPulledDetails(null);
   }, [errorIndex]);
 
-  const priceChange = pulledData?.results
-    ? (pulledData.results[0].c - pulledData.results[0].o).toFixed(4)
-    : 0;
+  const priceChange =
+    pulledData?.results &&
+    (pulledData.results[0].c - pulledData.results[0].o).toFixed(4);
 
-  const priceChangePercent = pulledData?.results
-    ? (
-        (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
-        pulledData.results[0].c
-      ).toFixed(2)
-    : 0;
+  const priceChangePercent =
+    pulledData?.results &&
+    (
+      (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
+      pulledData.results[0].c
+    ).toFixed(2);
 
   return (
     <div className="data">
-      <div id="refresh">
-        <IconButton aria-label="refresh" onClick={() => setRefresh(!refresh)}>
+      <div id="refresh-button">
+        <IconButton
+          key={refresh}
+          aria-label="refresh"
+          onClick={() => setRefresh(!refresh)}>
           <iconify-icon icon="line-md:rotate-270"></iconify-icon>
         </IconButton>
       </div>
@@ -120,8 +123,7 @@ const DataDetailMessage = ({
           <a
             href={pulledDetails.results.homepage_url}
             target="_blank"
-            rel="noreferrer"
-          >
+            rel="noreferrer">
             {pulledDetails.results.name}
           </a>
         )) ??
@@ -139,16 +141,26 @@ const DataDetailMessage = ({
         {pulledDetails.results.currency_name.toUpperCase()}
       </li>
       <li>
-        {/* downtrend-arrow if negative, else uptrend */}
+        {/* Downtrend-arrow if negative, else uptrend */}
         {priceChange <= 0 ? (
-          <iconify-icon icon="fluent:arrow-trending-down-24-filled"></iconify-icon>
+          <iconify-icon
+            icon="fluent:arrow-trending-down-24-filled"
+            style={{ color: "#d1001c" }}></iconify-icon>
         ) : (
-          <iconify-icon icon="fluent:arrow-trending-24-filled"></iconify-icon>
+          <iconify-icon
+            icon="fluent:arrow-trending-24-filled"
+            style={{ color: "#0e7a0d" }}></iconify-icon>
         )}
         : {priceChangePercent}% (${priceChange})
       </li>
-      <li>
-        {/* check if logo exist */}
+      <li
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginLeft: "-2em",
+        }}>
+        {/* Check if logo exist */}
         {pulledDetails?.results?.branding && (
           <img
             className="stockLogo"

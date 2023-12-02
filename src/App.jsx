@@ -1,13 +1,10 @@
 import { useState } from "react";
-import {
-  TextField,
-  Button,
-  ButtonGroup,
-  Stack,
-  Container,
-} from "@mui/material";
-import TickerCard from "./ticker-card";
-import doodle from "/stock.svg";
+import { Stack, Container } from "@mui/system";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Typography from "@mui/joy/Typography";
+import { Input, QueryButton } from "./input-box";
+import OutputCard from "./output-card";
+import doodle from "/logo.svg";
 import "./App.css";
 
 export default function App() {
@@ -20,20 +17,18 @@ export default function App() {
     <>
       <img className="logo" src={doodle} alt="doodle-chart" />
       <h1 className="title">📈 PriceQuery 📉</h1>
-      <div className="inputfield">
+      <div>
         <Stack
           direction="row"
           spacing={{ xs: 1, sm: 2, md: 4 }}
           justifyContent="center"
           useFlexGap
-          flexWrap="wrap"
-        >
+          flexWrap="wrap">
           <Input error={error} query={query} setQuery={setQuery} />
           <ButtonGroup
             variant="contained"
             aria-label="outlined primary button group"
-            color="grey"
-          >
+            color="grey">
             {[...Array(3)].map((ignored, index) => (
               <QueryButton
                 key={index}
@@ -51,10 +46,9 @@ export default function App() {
           display: "flex",
           height: "26em",
           maxWidth: "48em",
-        }}
-      >
+        }}>
         {ticker.map((ticker, index) => (
-          <TickerCard
+          <OutputCard
             ticker={ticker}
             key={index}
             index={index}
@@ -63,50 +57,40 @@ export default function App() {
           />
         ))}
       </Container>
+      <Stack
+        direction="row"
+        spacing={{ xs: 1.5, sm: 3, md: 4 }}
+        justifyContent="center"
+        useFlexGap
+        flexWrap="wrap">
+        <Typography level="title-md">Made With: </Typography>
+        <a href="https://vitejs.dev/" target="_blank" rel="noreferrer">
+          <iconify-icon icon="logos:vitejs"></iconify-icon>
+        </a>
+        <a href="https://react.dev/" target="_blank" rel="noreferrer">
+          <iconify-icon icon="logos:react"></iconify-icon>
+        </a>
+        <a href="https://bun.sh/" target="_blank" rel="noreferrer">
+          <iconify-icon icon="logos:bun"></iconify-icon>
+        </a>
+        <a href="https://axios-http.com/" target="_blank" rel="noreferrer">
+          <iconify-icon
+            icon="devicon-plain:axios"
+            style={{ color: "#5a29e4" }}></iconify-icon>
+        </a>
+        <a href="https://mui.com/" target="_blank" rel="noreferrer">
+          <iconify-icon icon="logos:material-ui"></iconify-icon>
+        </a>
+      </Stack>
+      <br />
+      <Typography level="title-lg">
+        By:{" "}
+        <a href="https://github.com/jasperteo" target="_blank" rel="noreferrer">
+          <iconify-icon icon="line-md:github-loop"></iconify-icon>
+          jasperteo
+        </a>
+      </Typography>
+      <br />
     </>
   );
 }
-
-const Input = ({ error, query, setQuery }) => (
-  <TextField
-    error={error.some((element) => element !== null)}
-    value={query}
-    onChange={(e) => setQuery(e.target.value.toUpperCase())}
-    id="tickerInput"
-    label="(e.g. AAPL / C:USDSGD / X:BTCUSD)"
-    variant="filled"
-    placeholder="Type in Stock / FX / Crypto Ticker"
-    color="grey"
-    sx={{
-      width: "21em",
-      fontFamily: "Geist Variable !important",
-      "*": {
-        fontFamily: "Geist Variable !important",
-        "*": { fontFamily: "Geist Variable !important" },
-      },
-    }}
-  />
-);
-
-const QueryButton = ({ index, setTicker, query }) => (
-  <Button
-    onClick={() =>
-      query && setTicker((prev) => prev.toSpliced(index, 1, query))
-    }
-    sx={{
-      fontFamily: "Geist Variable",
-      bgcolor: "#444444",
-      color: "#ddd0c8",
-      willChange: "filter",
-      "&:hover": {
-        filter: "drop-shadow(0 0 2em #333333)",
-        transition: "all 0.69s",
-      },
-      "iconify-icon": {
-        height: "1em",
-      },
-    }}
-  >
-    Query<iconify-icon icon="line-md:upload-loop"></iconify-icon>
-  </Button>
-);

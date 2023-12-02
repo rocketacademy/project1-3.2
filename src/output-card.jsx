@@ -1,7 +1,7 @@
 import Box from "@mui/system/Box";
 import MarketData from "./market-data";
 
-export default function TickerCard({ ticker, error, setError, index }) {
+export default function OutputCard({ ticker, error, setError, index }) {
   return (
     <Box
       height="26em"
@@ -26,8 +26,7 @@ export default function TickerCard({ ticker, error, setError, index }) {
           left: "3.125em",
           transition: "0.4s ease-out",
         },
-      }}
-    >
+      }}>
       <MarketData
         ticker={ticker}
         error={error}

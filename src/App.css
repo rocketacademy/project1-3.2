@@ -8,30 +8,29 @@
 .logo {
   width: 30rem;
   height: auto;
-  padding: 1em;
   will-change: filter;
-  transition: filter 300ms;
+  transition: all 0.69s;
   &:hover {
     filter: drop-shadow(0 0 2em #ff5100);
   }
 }
 
 .title {
+  margin-top: -1rem;
+  margin-bottom: 4rem;
   font-size: 4rem;
   font-weight: 800;
-  will-change: filter;
   transition: all 0.69s;
   &:hover {
     transform: scale(1.125);
-    filter: drop-shadow(0 0 2em #ff5100);
     color: #333333;
   }
 }
 
-ul {
-  list-style-type: none;
-  padding: 0em;
-  li {
-    margin-bottom: 0.75em;
+a {
+  will-change: filter;
+  transition: all 0.69s;
+  &:hover {
+    filter: drop-shadow(0 0 1rem #000000);
   }
 }
