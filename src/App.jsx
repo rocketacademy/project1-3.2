@@ -69,8 +69,7 @@ const Footer = () => (
       direction="row"
       spacing={{ xs: 1.5, sm: 3, md: 4 }}
       justifyContent="center"
-      alignItems="center"
-      al>
+      alignItems="center">
       <Typography level="title-lg">Made With: </Typography>
       <a href="https://vitejs.dev/" target="_blank" rel="noreferrer">
         <iconify-icon icon="logos:vitejs"></iconify-icon>
