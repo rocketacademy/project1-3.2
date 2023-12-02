@@ -91,7 +91,7 @@ export default function MarketData({ ticker, error, setError, index }) {
 }
 
 const LoadingMessage = () => (
-  <div className="errorAndLoading">
+  <div className="error-loading">
     <br />
     Loading... <iconify-icon icon="line-md:loading-twotone-loop"></iconify-icon>
     <br />
@@ -99,7 +99,7 @@ const LoadingMessage = () => (
 );
 
 const ErrorMessage = ({ errorIndex }) => (
-  <div className="errorAndLoading">
+  <div className="error-loading">
     <br />
     <iconify-icon icon="line-md:alert-circle-twotone"></iconify-icon>
     {errorIndex} <br />

@@ -26,11 +26,3 @@
     color: #333333;
   }
 }
-
-a {
-  will-change: filter;
-  transition: all 0.69s;
-  &:hover {
-    filter: drop-shadow(0 0 1rem #000000);
-  }
-}

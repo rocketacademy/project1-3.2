@@ -17,7 +17,7 @@ iconify-icon {
   height: 0.75em;
 }
 
-.errorAndLoading {
+.error-loading {
   font-family: "Geist Mono Variable", monospace, monospace;
   text-align: left;
 }
