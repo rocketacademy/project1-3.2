@@ -5,6 +5,7 @@ import Typography from "@mui/joy/Typography";
 import { Input, QueryButton } from "./input-box";
 import OutputCard from "./output-card";
 import doodle from "/logo.svg";
+import polygon from "/polygonio.svg";
 import "./App.css";
 
 export default function App() {
@@ -78,8 +79,17 @@ export default function App() {
             icon="devicon-plain:axios"
             style={{ color: "#5a29e4" }}></iconify-icon>
         </a>
+        {/* <a
+          href="https://tanstack.com/query/latest"
+          target="_blank"
+          rel="noreferrer">
+          <iconify-icon icon="logos:react-query-icon"></iconify-icon>
+        </a> */}
         <a href="https://mui.com/" target="_blank" rel="noreferrer">
           <iconify-icon icon="logos:material-ui"></iconify-icon>
+        </a>
+        <a href="https://polygon.io/" target="_blank" rel="noreferrer">
+          <img src={polygon} alt="polygonio-logo" />
         </a>
       </Stack>
       <br />

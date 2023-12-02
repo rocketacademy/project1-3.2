@@ -11,8 +11,10 @@ export default function MarketData({ ticker, error, setError, index }) {
   const [pulledDetails, setPulledDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
+
   const errorIndex = error[index];
 
+  //Pull data when user requests or refreshes
   useEffect(() => {
     setError((prev) => prev.toSpliced(index, 1, null));
     setPulledData(null);
@@ -49,6 +51,7 @@ export default function MarketData({ ticker, error, setError, index }) {
     fetchDataDetails();
   }, [ticker, refresh]); //eslint-disable-line
 
+  //Clear old data upon error
   useEffect(() => {
     setPulledData(null);
     setPulledDetails(null);
@@ -69,7 +72,7 @@ export default function MarketData({ ticker, error, setError, index }) {
     <div className="data">
       <div id="refresh-button">
         <IconButton
-          key={refresh}
+          key={refresh} //trick to re-render the button for animation
           aria-label="refresh"
           onClick={() => setRefresh(!refresh)}>
           <iconify-icon icon="line-md:rotate-270"></iconify-icon>
