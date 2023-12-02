@@ -18,4 +18,8 @@ You may also see any lint errors in the console.
 
 # User Story
 
-User wants to keep up to date with their business assets and keep an eye out for foreign currency prices to hedge against. The app provides a quick way to look up prices of assets in the equity, FOREX and cryptocurrency markets. Information is pulled from https://polygon.io/ API.
+User wants to keep up to date with their business assets and keep an eye out for foreign currency prices to hedge against. The app provides a quick way to look up prices of assets in the equity, foreign exchange and cryptocurrency markets.
+
+By default, users will be presented with 3 cards of information. Users are given the option to add and remove these cards, with a maximum of 6 and a minimum of 2. There will be an input for users to enter the ticker of their desired information, and the query button will map the ticker to its corresponding card (i.e. the 1st button goes to 1st card, 2nd button goes to 2nd card etc.). Information displayed is static and do not update dynamically in real-time, though users are given an option to refresh their cards if needed.
+
+Information is pulled from https://polygon.io/ API. There is a rate limit imposed as I am on the free plan.
