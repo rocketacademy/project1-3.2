@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Quote from './Quote'
 import UserInput from './UserInput'
 import { getWord, getWordFromTF } from '../../utils';
-import Modal from './Modal';
+import "./QuoteWrapper.css"
 
 function QuoteWrapper({username, users, handleSaved, addViewedQuotes}) {
   const [feeling, setFeeling] = useState("");
@@ -71,16 +71,22 @@ function QuoteWrapper({username, users, handleSaved, addViewedQuotes}) {
   return (
     <div className="quote-wrapper">
       <h3>Hello, {username}</h3>
-      <div>
+      <div className="input-wrapper">
         <UserInput
-          inputLabel="How Do You Feel Now? "
+          inputLabel="Select a Feeling: "
           optionName="user-feeling"
           onDropdownChange={handleFeelingChange}
           options={["happy", "sad", "lazy"]}
         />
         <UserInput
-          inputLabel="Select a Random Topic: "
+          inputLabel="Select a Topic: "
           optionName="user-topic"
+          onDropdownChange={handleTopicChange}
+          options={["coding", "exercise", "cooking"]}
+        />
+        <UserInput
+          inputLabel="Select a Person: "
+          optionName="user-person"
           onDropdownChange={handleTopicChange}
           options={["coding", "exercise", "cooking"]}
         />
@@ -92,9 +98,6 @@ function QuoteWrapper({username, users, handleSaved, addViewedQuotes}) {
         nextQuote={nextQuote}
         saveThis={saveThis}
       />
-      <Modal showModal={showModal} closeModal={closeModal}>
-        <h2>Saved!</h2>
-      </Modal>
     </div>
   );
 }

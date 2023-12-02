@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { useState } from "react"
+import Form from "react-bootstrap/Form";
+
 
 function UserInput({inputLabel, optionName, onDropdownChange, options}) {
   const [selectedOption, setSelectedOption] = useState("");
@@ -13,19 +15,21 @@ function UserInput({inputLabel, optionName, onDropdownChange, options}) {
   }, [selectedOption])
 
   return (
-    <div>
+    <div className="input-field">
       <label>{inputLabel}</label>
-      <div>      
-        <select name={optionName} value={selectedOption} onChange={handleChange}>
+      <Form.Select
+        aria-label="Default select example"
+        name={optionName}
+        value={selectedOption}
+        onChange={handleChange}
+      >
         <option value="">Select an Option</option>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}
           </option>
         ))}
-      </select></div>
-
-
+      </Form.Select>
     </div>
   );
 }

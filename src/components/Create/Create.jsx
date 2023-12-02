@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
-import Modal from '../RandomQuote/Modal';
+import ModalAlert from '../RandomQuote/Modal';
+import {Form, Button} from "react-bootstrap";
+import "./Create.css"
 
 function Create({username, handleCreate}) {
   const [quote, setQuote] = useState("");
   const [category, setCategory] = useState("")
-  const [showModal, setShowModal] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleText = (event) => {
     setQuote(event.target.value);
@@ -17,47 +19,43 @@ function Create({username, handleCreate}) {
   const createQuote = () => {
     event.preventDefault()
     if(username == "") {
-      console.log(username)
-      openModal()
+      setModalShow(true);
       return
-    }
-    const newQuote = {
+    } else {
+      const newQuote = {
       text: quote,
       author: username,
       category: category
-    };
-    handleCreate(username, newQuote);
-  };
-
-  const openModal = () => setShowModal(true);
-  const closeModal = () => {
-    setShowModal(false);
+      };    
+      handleCreate(username, newQuote);
+    }
   };
 
   return (
-    <div>
+    <div className="create-container">
       <h3>Hello, {username}</h3>
-      <div>Write your own code: </div>
-      <form onSubmit={createQuote}>
-        <div>
-          <textarea
-            id="user-quote"
-            rows="4"
-            cols="50"
-            onChange={handleText}
-          ></textarea>
-        </div>
-        <div>
-          <label>Category: </label>
-          <input type="text" onChange={handleCategory}></input>
-        </div>
-        <br></br>
-        <input type="submit" value="Submit"></input>
-      </form>
-
-      <Modal showModal={showModal} closeModal={closeModal}>
-        <h2>Please Input or Choose a User First!</h2>
-      </Modal>
+      <Form onSubmit={createQuote}>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Write Your Own Quote</Form.Label>
+          <Form.Control as="textarea" rows={3} onChange={handleText} />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Category</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Category"
+            onChange={handleCategory}
+          />
+        </Form.Group>
+        <Button variant="primary" onClick={createQuote}>
+          Create
+        </Button>
+      </Form>
+      <ModalAlert
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        text="Created"
+      ></ModalAlert>
     </div>
   );
 }

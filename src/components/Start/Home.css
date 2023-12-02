@@ -1,0 +1,15 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-greet {
+  margin: 2rem;
+  font-size:2.5rem;
+}
+
+.home-answer {
+  margin: 2rem;
+  font-size: large;
+}

@@ -1,48 +1,51 @@
-import React from 'react'
-import Modal from '../RandomQuote/Modal';
-import { useState } from 'react'
+import React, {useState} from 'react'
+import "./ChangeUser.css"
+import {Form, Button} from "react-bootstrap"
+import ModalAlert from "../RandomQuote/Modal";
 
 function ChangeUser({username, options, changeCurrUser}) {
   const [selectedOption, setSelectedOption] = useState("")
-  const [showModal, setShowModal] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const handleClick = () => {
-    openModal() 
+    setModalShow(true);
     changeCurrUser(selectedOption)
   }
 
-  const openModal = () => setShowModal(true);
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
   return (
-    <>
+    <div className="changeuser-container">
       <h3>Hello, {username}</h3>
       <label>Change User To: </label>
-      <div>
-        <select name="change-user" value={selectedOption} onChange={handleChange}>
+      <Form.Select
+        aria-label="Default select example"
+        name="change-user"
+        value={selectedOption}
+        onChange={handleChange}
+      >
         <option value="">Select an Option</option>
         {options.map((option, index) => (
           <option key={index} value={option.username}>
             {option.username}
           </option>
         ))}
-      </select>
-      </div>
-      <button onClick={handleClick}>Change</button>
-
-      <Modal showModal={showModal} closeModal={closeModal}>
-        <h2>User Changed!</h2>
-      </Modal>
-      <br></br>
-      <br></br>
+      </Form.Select>
+      
+      <Button variant="secondary" onClick={handleClick}>
+        Change
+      </Button>
       <div>To add new user, please go to "Home"</div>
-    </>
+      
+      <ModalAlert
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        text="Changed"
+      ></ModalAlert>
+
+    </div>
   );
 }
 
