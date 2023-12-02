@@ -26,3 +26,20 @@
     color: #333333;
   }
 }
+
+.plus-minus {
+  text-align: right;
+  margin: 2rem 2rem 0rem 0rem;
+  iconify-icon {
+    font-size: 1.75em;
+    height: 1em;
+  }
+}
+
+.footer {
+  iconify-icon {
+    font-size: 2em;
+    width: 1.1em;
+    height: 0.75em;
+  }
+}
