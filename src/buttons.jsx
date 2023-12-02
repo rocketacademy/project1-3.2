@@ -28,7 +28,7 @@ const QueryButton = ({ ticker, setTicker, query }) => {
     <ButtonGroup
       variant="contained"
       aria-label="outlined button group"
-      color="inherit">
+      color="grey">
       {[...Array(ticker.length)].map((ignored, index) => SingleButton(index))}
     </ButtonGroup>
   );
