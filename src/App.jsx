@@ -37,7 +37,11 @@ export default function App() {
       </Stack>
 
       <div className="plus-minus">
-        <PlusMinusButton ticker={ticker} setTicker={setTicker} />
+        <PlusMinusButton
+          ticker={ticker}
+          setTicker={setTicker}
+          setError={setError}
+        />
       </div>
 
       <Container
