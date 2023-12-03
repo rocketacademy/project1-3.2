@@ -27,4 +27,5 @@ Information is pulled from https://polygon.io/ API. There is a rate limit impose
 ## Errors
 
 `Status Code 429`: Rate limited. Wait a while and try again
+
 `Status code 404`: Invalid input, type in a valid ticker symbol
