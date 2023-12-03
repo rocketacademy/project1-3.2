@@ -14,12 +14,9 @@ export default function MarketData({ ticker, error, setError, index }) {
 
   const errorIndex = error[index];
 
-  //Pull data when user requests or refreshes
+  // Pull data when user requests or refreshes
   useEffect(() => {
-    setError((prev) => prev.toSpliced(index, 1, null));
-    setPulledData(null);
-    setPulledDetails(null);
-    setLoading(true);
+    //Pull data
     const fetchDataDetails = async () => {
       try {
         //First API call
@@ -49,24 +46,21 @@ export default function MarketData({ ticker, error, setError, index }) {
       }
     };
     fetchDataDetails();
-  }, [ticker, refresh]); //eslint-disable-line
+    return () => {
+      //Clear old error
+      setError((prev) => prev.toSpliced(index, 1, null));
+      //Initiate loading animation
+      setPulledData(null);
+      setPulledDetails(null);
+      setLoading(true);
+    };
+  }, [ticker, refresh]);
 
   //Clear old data upon error
   useEffect(() => {
     setPulledData(null);
     setPulledDetails(null);
   }, [errorIndex]);
-
-  const priceChange =
-    pulledData?.results &&
-    (pulledData.results[0].c - pulledData.results[0].o).toFixed(4);
-
-  const priceChangePercent =
-    pulledData?.results &&
-    (
-      (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
-      pulledData.results[0].c
-    ).toFixed(2);
 
   return (
     <div className="data">
@@ -78,14 +72,13 @@ export default function MarketData({ ticker, error, setError, index }) {
           <iconify-icon icon="line-md:rotate-270"></iconify-icon>
         </IconButton>
       </div>
+      <br />
       {loading && <LoadingMessage />}
       {errorIndex && <ErrorMessage errorIndex={errorIndex} />}
       {pulledDetails && pulledData?.results && (
         <DataDetailMessage
           pulledData={pulledData}
           pulledDetails={pulledDetails}
-          priceChange={priceChange}
-          priceChangePercent={priceChangePercent}
           API_KEY={API_KEY}
         />
       )}
@@ -109,70 +102,93 @@ const ErrorMessage = ({ errorIndex }) => (
   </div>
 );
 
-const DataDetailMessage = ({
-  pulledData,
-  pulledDetails,
-  priceChange,
-  priceChangePercent,
-  API_KEY,
-}) => (
-  <>
-    <br />
-    <ul>
-      <li>
-        {/* Name, also check for url */}
-        <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
-        {(pulledDetails?.results?.homepage_url && (
-          <a
-            href={pulledDetails.results.homepage_url}
-            target="_blank"
-            rel="noreferrer">
-            {pulledDetails.results.name}
-          </a>
-        )) ??
-          pulledDetails.results.name}
-      </li>
-      <li>
-        {/* Ticker Name */}
-        <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
-        : {pulledData.ticker}
-      </li>
-      <li>
-        {/* Closing Price */}
-        <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
-        : {pulledData.results[0].c.toFixed(2)}{" "}
-        {pulledDetails.results.currency_name.toUpperCase()}
-      </li>
-      <li>
-        {/* Downtrend-arrow if negative, else uptrend */}
-        {priceChange <= 0 ? (
-          <iconify-icon
-            icon="fluent:arrow-trending-down-24-filled"
-            style={{ color: "#d1001c" }}></iconify-icon>
-        ) : (
-          <iconify-icon
-            icon="fluent:arrow-trending-24-filled"
-            style={{ color: "#0e7a0d" }}></iconify-icon>
-        )}
-        : {priceChangePercent}% (${priceChange})
-      </li>
-      <li
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginLeft: "-2em",
-        }}>
-        {/* Check if logo exist */}
-        {pulledDetails?.results?.branding && (
-          <img
-            className="stockLogo"
-            src={`${pulledDetails.results.branding.logo_url}?apiKey=${API_KEY}`}
-            alt="logo"
-          />
-        )}
-      </li>
-    </ul>
-    <br />
-  </>
-);
+const DataDetailMessage = ({ pulledData, pulledDetails, API_KEY }) => {
+  const Name = () => (
+    <li>
+      {/* Name, also check for url */}
+      <iconify-icon icon="fluent-mdl2:rename"></iconify-icon>:{" "}
+      {pulledDetails?.results?.homepage_url ? (
+        <a
+          href={pulledDetails.results.homepage_url}
+          target="_blank"
+          rel="noreferrer">
+          {pulledDetails.results.name}
+        </a>
+      ) : (
+        pulledDetails.results.name
+      )}
+    </li>
+  );
+
+  const TickerName = () => (
+    <li>
+      {/* Ticker Name */}
+      <iconify-icon icon="material-symbols:currency-exchange-rounded"></iconify-icon>
+      : {pulledData.ticker}
+    </li>
+  );
+
+  const Price = () => (
+    <li>
+      {/* Closing Price */}
+      <iconify-icon icon="material-symbols:price-change-outline-rounded"></iconify-icon>
+      : {pulledData.results[0].c.toFixed(2)}{" "}
+      {pulledDetails.results.currency_name.toUpperCase()}
+    </li>
+  );
+
+  const priceChange = (
+    pulledData.results[0].c - pulledData.results[0].o
+  ).toFixed(4);
+  const priceChangePercent = (
+    (100 * (pulledData.results[0].c - pulledData.results[0].o)) /
+    pulledData.results[0].c
+  ).toFixed(2);
+
+  const Delta = () => (
+    <li>
+      {/* Downtrend-arrow if negative, else uptrend */}
+      {priceChange <= 0 ? (
+        <iconify-icon
+          icon="fluent:arrow-trending-down-24-filled"
+          style={{ color: "#d1001c" }}></iconify-icon>
+      ) : (
+        <iconify-icon
+          icon="fluent:arrow-trending-24-filled"
+          style={{ color: "#0e7a0d" }}></iconify-icon>
+      )}
+      : {priceChangePercent}% (${priceChange})
+    </li>
+  );
+
+  const Logo = () => (
+    <li
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginLeft: "-2em",
+      }}>
+      {/* Check if logo exist */}
+      {pulledDetails?.results?.branding?.logo_url && (
+        <img
+          className="stockLogo"
+          src={`${pulledDetails.results.branding.logo_url}?apiKey=${API_KEY}`}
+          alt="logo"
+        />
+      )}
+    </li>
+  );
+
+  return (
+    <>
+      <ul>
+        <Name />
+        <TickerName />
+        <Price />
+        <Delta />
+        <Logo />
+      </ul>
+    </>
+  );
+};

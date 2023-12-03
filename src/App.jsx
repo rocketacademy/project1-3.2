@@ -74,7 +74,9 @@ const Footer = () => (
       spacing={{ xs: 1.5, sm: 3, md: 4 }}
       justifyContent="center"
       alignItems="center">
-      <Typography level="title-lg">Made With: </Typography>
+      <Typography level="title-lg" color="inherit">
+        Made With:{" "}
+      </Typography>
       <a href="https://vitejs.dev/" target="_blank" rel="noreferrer">
         <iconify-icon icon="logos:vitejs"></iconify-icon>
       </a>
@@ -104,7 +106,7 @@ const Footer = () => (
     </Stack>
     <br />
 
-    <Typography level="title-lg">
+    <Typography level="title-lg" color="inherit">
       By:{" "}
       <a href="https://github.com/jasperteo" target="_blank" rel="noreferrer">
         <iconify-icon icon="line-md:github-loop"></iconify-icon>
