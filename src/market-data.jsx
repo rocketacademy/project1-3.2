@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
+// import useSWR from "swr";
 // import { useQuery } from "@tanstack/react-query";
 import "./market-data.css";
 
@@ -150,11 +151,11 @@ const DataDetailMessage = ({ pulledData, pulledDetails, API_KEY }) => {
       {/* Downtrend-arrow if negative, else uptrend */}
       {priceChange <= 0 ? (
         <iconify-icon
-          icon="fluent:arrow-trending-down-24-filled"
+          icon="material-symbols:trending-down-rounded"
           style={{ color: "#d1001c" }}></iconify-icon>
       ) : (
         <iconify-icon
-          icon="fluent:arrow-trending-24-filled"
+          icon="material-symbols:trending-up-rounded"
           style={{ color: "#0e7a0d" }}></iconify-icon>
       )}
       : {priceChangePercent}% (${priceChange})

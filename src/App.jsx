@@ -91,12 +91,6 @@ const Footer = () => (
           icon="devicon-plain:axios"
           style={{ color: "#5a29e4" }}></iconify-icon>
       </a>
-      {/* <a
-          href="https://tanstack.com/query/latest"
-          target="_blank"
-          rel="noreferrer">
-          <iconify-icon icon="logos:react-query-icon"></iconify-icon>
-        </a> */}
       <a href="https://mui.com/" target="_blank" rel="noreferrer">
         <iconify-icon icon="logos:material-ui"></iconify-icon>
       </a>

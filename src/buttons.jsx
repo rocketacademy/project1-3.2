@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from "@mui/material";
 
-const QueryButton = ({ ticker, setTicker, query }) => {
+export function QueryButton({ ticker, setTicker, query }) {
   const SingleButton = (index) => (
     <Button
       key={index}
@@ -32,29 +32,29 @@ const QueryButton = ({ ticker, setTicker, query }) => {
       {[...Array(ticker.length)].map((ignored, index) => SingleButton(index))}
     </ButtonGroup>
   );
-};
+}
 
-const PlusMinusButton = ({ ticker, setTicker, setError }) => (
-  <ButtonGroup variant="text" aria-label="button group" color="inherit">
-    {/* Max 6 cards */}
-    <Button
-      onClick={() =>
-        ticker.length < 6 &&
-        (setTicker((prev) => [...prev, "AAPL"]),
-        setError((prev) => [...prev, null]))
-      }>
-      <iconify-icon icon="line-md:plus-square-twotone"></iconify-icon>
-    </Button>
-    {/* Min 2 cards */}
-    <Button
-      onClick={() =>
-        ticker.length > 2 &&
-        (setTicker((prev) => prev.toSpliced(-1, 1)),
-        setError((prev) => prev.toSpliced(-1, 1)))
-      }>
-      <iconify-icon icon="line-md:minus-square-twotone"></iconify-icon>
-    </Button>
-  </ButtonGroup>
-);
-
-export { QueryButton, PlusMinusButton };
+export function PlusMinusButton({ ticker, setTicker, setError }) {
+  return (
+    <ButtonGroup variant="text" aria-label="button group" color="inherit">
+      {/* Max 6 cards */}
+      <Button
+        onClick={() =>
+          ticker.length < 6 &&
+          (setTicker((prev) => [...prev, "AAPL"]),
+          setError((prev) => [...prev, null]))
+        }>
+        <iconify-icon icon="line-md:plus-square-twotone"></iconify-icon>
+      </Button>
+      {/* Min 2 cards */}
+      <Button
+        onClick={() =>
+          ticker.length > 2 &&
+          (setTicker((prev) => prev.toSpliced(-1, 1)),
+          setError((prev) => prev.toSpliced(-1, 1)))
+        }>
+        <iconify-icon icon="line-md:minus-square-twotone"></iconify-icon>
+      </Button>
+    </ButtonGroup>
+  );
+}
