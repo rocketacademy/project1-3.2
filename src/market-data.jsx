@@ -55,7 +55,7 @@ export default function MarketData({ ticker, error, setError, index }) {
       setPulledDetails(null);
       setLoading(true);
     };
-  }, [ticker, refresh]);
+  }, [ticker, refresh]); // eslint-disable-line
 
   //Clear old data upon error
   useEffect(() => {
