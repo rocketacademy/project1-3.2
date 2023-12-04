@@ -26,8 +26,9 @@ export default function App() {
       <Typography
         level="h1"
         my="4rem"
-        fontSize="4em"
-        fontWeight="800"
+        fontSize="4rem"
+        fontWeight="690"
+        letterSpacing="-0.022rem"
         color="inherit">
         📈 PriceQuery 📉
       </Typography>

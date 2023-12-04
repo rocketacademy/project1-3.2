@@ -9,6 +9,7 @@
   text-align: left;
   font-size: 1em;
   padding-left: 2em;
+  font-feature-settings: "ss02" 1, "cv06" 1, "tnum" 1, "case" 1;
 }
 
 .error-loading {
