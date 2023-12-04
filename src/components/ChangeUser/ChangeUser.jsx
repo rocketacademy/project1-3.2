@@ -19,6 +19,7 @@ function ChangeUser({username, options, changeCurrUser}) {
   return (
     <div className="changeuser-container">
       <h3>Hello, {username}</h3>
+      <div className='changeuser-input'>
       <label>Change User To: </label>
       <Form.Select
         aria-label="Default select example"
@@ -32,12 +33,13 @@ function ChangeUser({username, options, changeCurrUser}) {
             {option.username}
           </option>
         ))}
-      </Form.Select>
+      </Form.Select>  
+      </div>
       
       <Button variant="secondary" onClick={handleClick}>
         Change
       </Button>
-      <div>To add new user, please go to "Home"</div>
+      <div className='concluding'>To add new user, please go to "Get Started"</div>
       
       <ModalAlert
         show={modalShow}

@@ -19,14 +19,14 @@ function Create({username, handleCreate}) {
   const createQuote = () => {
     event.preventDefault()
     if(username == "") {
-      setModalShow(true);
       return
     } else {
       const newQuote = {
       text: quote,
       author: username,
       category: category
-      };    
+      };
+      setModalShow(true);    
       handleCreate(username, newQuote);
     }
   };

@@ -9,6 +9,7 @@ import Viewed from "./components/Viewed/Viewed.jsx";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import QuoteX from "./components/Home/QuoteX.jsx";
 
 function App() {
   const [users, setUsers] = useState([
@@ -81,9 +82,15 @@ function App() {
 
   return (
     <>
-    <div className="app-container">
-      <NavBar />
+      <div className="app-container">
+        <NavBar />
         <Routes>
+          <Route
+            path="/"
+            element={
+              <QuoteX/>
+            }
+          />
           <Route
             path="/start"
             element={
@@ -111,7 +118,13 @@ function App() {
           />
           <Route
             path="/saved"
-            element={<Saved username={currUser} users={users} handleDelete={handleDelete}/>}
+            element={
+              <Saved
+                username={currUser}
+                users={users}
+                handleDelete={handleDelete}
+              />
+            }
           />
           <Route
             path="/viewed"
@@ -128,8 +141,7 @@ function App() {
             }
           />
         </Routes>
-    </div>
-        
+      </div>
     </>
   );
 }

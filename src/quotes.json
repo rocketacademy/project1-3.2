@@ -1,37 +1,157 @@
 [
   {
-    "text": "Many of life’s failures are people who did not realize how close they were to success when they gave up.",
-    "author": "Thomas A. Edison",
-    "category": ["sad"]
+    "text": "Many of life's failures are people who did not realize how close they were to success when they gave up.",
+    "author": "Thomas Edison",
+    "category": ["Encouraging"]
   },
   {
-    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
-    "author": "C.S. Lewis",
-    "category": ["sad"]
+    "text": "Believe you can and you're halfway there.",
+    "author": "Theodore Roosevelt",
+    "category": ["Encouraging"]
+  },
+  {
+    "text": "Nothing is Possible. The word itself is 'I'm Possible'",
+    "author": "Unknown",
+    "category": ["Encouraging"]
   },
   {
     "text": "Even the darkest night will end and the sun will rise.",
-    "author": "C.S. Lewis",
-    "category": ["Les Misérables"]
+    "author": "Les Misérables",
+    "category": ["Encouraging"]
+  },
+  {
+    "text": "If you're going through hell, keep going.",
+    "author": "Winston Churchill",
+    "category": ["Encouraging"]
+  },
+  {
+    "text": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
+    "category": ["Encouraging"]
+  },
+  {
+    "text": "If Plan A doesn't work, there are 25 more letters in the alphabet.",
+    "author": "Confucius",
+    "category": ["Encouraging"]
+  },
+  {
+    "text": "If you can dream it, you can do it.",
+    "author": "Walt Disney",
+    "category": ["Inspiring"]
+  },
+  {
+    "text": "Don't count the days, make the days count.",
+    "author": "Muhammad Ali",
+    "category": ["Inspiring"]
+  },
+  {
+    "text": "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+    "author": "Helen Keller",
+    "category": ["Inspiring"]
+  },
+  {
+    "text": "Perfection is not attainable, but if we chase perfection we can catch excellence.",
+    "author": "Vince Lombardi",
+    "category": ["Inspiring"]
+  },
+  {
+    "text": "Before you marry a person, you should first make them use a computer with slow Internet to see who they really are.",
+    "author": "Will Ferrell",
+    "category": ["Funny"]
+  },
+  {
+    "text": "People say love is the best feeling, but I think finding a toilet when you are having diarrhea is better",
+    "author": "Unknown",
+    "category": ["Funny"]
+  },
+  {
+    "text": "My advice to you is get married: If you find a good wife you'll be happy; if not, you'll become a philosopher",
+    "author": "Socrates",
+    "category": ["Funny"]
+  },
+  {
+    "text": "Two things are infinite: the universe and human stupidity. And I'm not sure about the universe.",
+    "author": "Albert Einstein",
+    "category": ["Funny"]
+  },
+  {
+    "text": "The best way to teach your kids about taxes is by eating 30 percent of their ice cream",
+    "author": "Albert Einstein",
+    "category": ["Funny"]
+  },
+  {
+    "text": "If you think nobody cares if you’re alive, try missing a couple of car payments.",
+    "author": "Earl Wilson",
+    "category": ["Funny"]
   },
   {
     "text": "Always code as if the person who ends up maintaining your code will be a violent psychopath who knows where you live.",
     "author": "Unknown",
-    "category": ["coding"]
+    "category": ["Coding"]
   },
   {
     "text": "Give someone a program; you frustrate them for a day; teach them how to program, and you frustrate them for a lifetime",
     "author": "David Leinweber",
-    "category": ["coding"]
+    "category": ["Coding"]
   },
   {
     "text": "If the code doesn't bother you, don't bother it.",
     "author": "Unknown",
-    "category": ["coding"]
+    "category": ["Coding"]
   },
   {
     "text": "You never finish a program, you just stop working on it.",
     "author": "Unknown",
-    "category": ["coding"]
+    "category": ["Coding"]
+  },
+  {
+    "text": "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.",
+    "author": "Rick Cook",
+    "category": ["Coding"]
+  },
+  {
+    "text": "There is always one more bug to fix.",
+    "author": "Ellen Ullman",
+    "category": ["Coding"]
+  },
+  {
+    "text": "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code.",
+    "author": "Dan Salomon",
+    "category": ["Coding"]
+  },
+  {
+    "text": "Java is to Javascript what car is to Carpet.",
+    "author": "Chris Heilmann",
+    "category": ["Coding"]
+  },
+  {
+    "text": "The best way to appreciate your job is to imagine yourself without one.",
+    "author": "Oscar Wilde",
+    "category": ["Work"]
+  },
+  {
+    "text": "Every day I get up and look through the Forbes list of the richest people in America. If I'm not there, I go to work.",
+    "author": "Robert Orben",
+    "category": ["Work"]
+  },
+  {
+    "text": "I always give 100% at Work: 10% Monday, 23% Tuesday, 40% Wednesday, 22% Thursday, and 5% Friday.",
+    "author": "Unknown",
+    "category": ["Work"]
+  },
+  {
+    "text": "My boss told me to start every presentation with a joke. The first slide was my paycheck.",
+    "author": "Unknown",
+    "category": ["Work"]
+  },
+  {
+    "text": "The best abs exercise is five sets of stop eating so much",
+    "author": "Lazar Angelov",
+    "category": ["Health"]
+  },
+  {
+    "text": "It’s no longer a question of staying healthy. It’s a question of finding a sickness you like.",
+    "author": "Unknown",
+    "category": ["Health"]
   }
 ]

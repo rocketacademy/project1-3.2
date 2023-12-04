@@ -10,6 +10,10 @@
 }
 
 .home-answer {
+  background-color:rgb(172, 252, 252);
+  padding: 1rem;
   margin: 2rem;
-  font-size: large;
+  border-radius: 5%;
+  text-align: center;
+  width: 30%;
 }

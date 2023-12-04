@@ -26,7 +26,6 @@ function Saved({username, users, handleDelete}) {
       <br />
 
       <h5>Created Quotes: </h5>
-      <div>
         <div className="saved-list">
           {users.map((user) =>
             user.username === username
@@ -42,7 +41,6 @@ function Saved({username, users, handleDelete}) {
               : null
           )}
         </div>
-      </div>
     </div>
   );
 }

@@ -3,18 +3,40 @@ import quotes from "./quotes.json";
 //From Own Database
 export const getWord = (category) => {
   let matchingQuotes = [];
-  console.log(category)
-  for (const quote of quotes) {
-    quote.category.includes(...category) ?
+  if (category[1] != "") {
+    for (const quote of quotes) {
+      quote.author.includes(category[1]) ?
       matchingQuotes.push(quote) : null
   }
+  } else if (category[0] != ""){
+    for (const quote of quotes) {
+    quote.category.includes(category[0]) ?
+      matchingQuotes.push(quote) : null
+    }
+  } 
+  
   const defaultQuote = {
     text: "No Quote Found",
     author: "NA"
   }
+  let matchingQuote = matchingQuotes.length > 0? matchingQuotes[Math.floor(Math.random() * matchingQuotes.length)] : defaultQuote
+  return matchingQuote
+};
 
-  const matchingQuote = matchingQuotes[Math.floor(Math.random() * matchingQuotes.length)]
-  return matchingQuotes ? matchingQuote : defaultQuote;
+export const getAuthors = () => {
+  let authors = new Set();
+  for (const quote of quotes) {
+    authors.add(quote.author);
+  }
+  return [...authors];
+}
+
+export const getCategory = () => {
+  let category = new Set();
+  for (const quote of quotes) {
+    category.add(quote.category[0]);
+  }
+  return [...category];
 };
 
 //From https://type.fit/api/quotes
