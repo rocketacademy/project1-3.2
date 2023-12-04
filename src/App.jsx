@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Stack, Container } from "@mui/system";
 import Typography from "@mui/joy/Typography";
 import Input from "./input-box";
@@ -9,10 +9,16 @@ import polygon from "/polygonio.svg";
 import "./App.css";
 
 export default function App() {
-  const [ticker, setTicker] = useState(["AAPL", "NVDA", "AMZN"]);
+  const [ticker, setTicker] = useState(
+    JSON.parse(localStorage.getItem("userTicker")) ?? ["NVDA", "AMZN"]
+  );
   const [query, setQuery] = useState("");
   //Lifted from error useState from MarketData.jsx to App.jsx
   const [error, setError] = useState([null, null, null]);
+
+  useEffect(() => {
+    localStorage.setItem("userTicker", JSON.stringify(ticker));
+  }, [ticker]);
 
   return (
     <>
