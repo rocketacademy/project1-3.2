@@ -73,7 +73,7 @@ const jewelryItems = [
   },
   {
     id: 11,
-    name: "Twiisted Gold Diamond Bracelet",
+    name: "Twisted Gold Diamond Bracelet",
     categories: ["Bracelets"],
     price: "12,500",
     picture: "./Twisted Gold Diamond Bracelet.jpg",
