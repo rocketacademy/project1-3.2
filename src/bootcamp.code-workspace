@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "../.."
+    },
+    {
+      "path": "../../world-clock-bootcamp"
+    },
+    {
+      "path": "../../world-clock-3.2"
+    },
+    {
+      "path": "../../high-card-3.2"
+    },
+    {
+      "path": "../../guess-the-word-3.2"
+    },
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {}
+}

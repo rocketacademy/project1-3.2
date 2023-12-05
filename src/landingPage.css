@@ -1,0 +1,92 @@
+.landing_page {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  padding: 10px 0;
+  height: 30px;
+}
+
+.left_buttons {
+  display: flex;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.left_buttons button {
+  background: none;
+  border: none;
+  margin-right: 20px; /* Add spacing between buttons */
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.left_buttons button:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.right_buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.right_buttons button img {
+  width: 30px;
+  height: auto;
+}
+
+.default_page {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.text_section {
+  width: 50%;
+  margin-left: 50px;
+  padding: 0;
+  text-align: left;
+  line-height: 0.8;
+  font-size: 18px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.image3 {
+  width: 100vw;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.product_section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.product_Gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
