@@ -1,0 +1,16 @@
+.quotex-container {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.first-row-second-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.first-row {
+  background-color: bisque;
+}

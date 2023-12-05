@@ -1,0 +1,12 @@
+.saved-container {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.saved-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
