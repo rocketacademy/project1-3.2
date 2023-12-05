@@ -34,15 +34,15 @@ function QuoteX() {
           </Col>
         </Row>
         <Row className="px-4 mb-3">
-          <h3>Recent quotes by our users</h3>
+          <h3>Recent Quotes Made By Our Users</h3>
         </Row>
         <Row className="px-4 mb-5">
           <Col>
             <Card style={{ width: "14rem", height: "8.5rem" }}>
               <Card.Body>
-                <Card.Title>Bob Marley</Card.Title>
+                <Card.Title>Mahatma Gandhi</Card.Title>
                 <Card.Text>
-                  Love the life you live. Live the life you love.
+                  You must be the change you wish to see in the world.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -72,7 +72,7 @@ function QuoteX() {
         </Row>
         <Row className="px-4 mb-5">
           <Card>
-            <Card.Header as="h5">Featured Quote</Card.Header>
+            <Card.Header as="h5">Today's Featured Quote</Card.Header>
             <Card.Body>
               <Card.Title>Ralph Waldo Emerson</Card.Title>
               <Card.Text>

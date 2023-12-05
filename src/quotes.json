@@ -145,13 +145,48 @@
     "category": ["Work"]
   },
   {
+    "text": "I love deadlines. I like the whooshing sound they make as they fly by.",
+    "author": "Douglas Adams",
+    "category": ["Work"]
+  },
+  {
+    "text": "I always arrive late at the office, but I make up for it by leaving early.",
+    "author": "Charles Lamb",
+    "category": ["Work"]
+  },
+  {
+    "text": "I always arrive late at the office, but I make up for it by leaving early.",
+    "author": "Charles Lamb",
+    "category": ["Work"]
+  },
+  {
     "text": "The best abs exercise is five sets of stop eating so much",
     "author": "Lazar Angelov",
     "category": ["Health"]
   },
   {
-    "text": "It’s no longer a question of staying healthy. It’s a question of finding a sickness you like.",
+    "text": "It's no longer a question of staying healthy. It's a question of finding a sickness you like.",
     "author": "Unknown",
     "category": ["Health"]
+  },
+  {
+    "text": "We do not stop exercising because we grow old - we grow old because we stop exercising.",
+    "author": "Kenneth Cooper",
+    "category": ["Health"]
+  },
+  {
+    "text": "I don't have a favorite programming language, I just hate them all equally.",
+    "author": "Unknown",
+    "category": ["Coding"]
+  },
+  {
+    "text": "I'm not a bug, I'm a feature in disguise.",
+    "author": "Unknown",
+    "category": ["Coding"]
+  },
+  {
+    "text": "The best thing about a boolean is even if you are wrong, you are only off by a bit.",
+    "author": "Unknown",
+    "category": ["Coding"]
   }
 ]
