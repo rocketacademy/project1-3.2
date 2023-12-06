@@ -1,0 +1,103 @@
+.shopping_cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin-top: 0;
+}
+
+.checkout_section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background: url("./photos/landingpageimage1.jpg") no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.items_section {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  flex: 1;
+  padding-right: 90px;
+  align-self: flex-start;
+  margin-top: 0;
+}
+.ul_style {
+  list-style: none;
+  padding: 0;
+}
+
+.items_section ul {
+  list-style: none;
+  padding: 0;
+}
+.checkout_section {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  flex: 1;
+  padding-left: 150px;
+  align-self: flex-start;
+}
+
+.item_container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.item_image {
+  width: 90px;
+  height: auto;
+  margin-right: 10px;
+}
+.item_info {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.item_name {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.total_price {
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.checkout_section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout_section label {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.checkout_section input[type="text"] {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.checkout_section button {
+  padding: 2px 5px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  width: 100px;
+  height: auto;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  margin-left: 120px;
+  margin-top: 20px;
+}
+.success_message {
+  font-weight: bold;
+  color: red;
+}
