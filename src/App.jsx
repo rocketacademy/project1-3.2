@@ -10,7 +10,7 @@ import "./App.css";
 
 export default function App() {
   const [ticker, setTicker] = useState(
-    JSON.parse(localStorage.getItem("userTicker")) ?? ["NVDA", "AMZN"]
+    JSON.parse(localStorage.getItem("userTicker")) ?? ["MSFT", "NVDA", "AMZN"]
   );
   const [query, setQuery] = useState("");
   //Lifted from error useState from MarketData.jsx to App.jsx
