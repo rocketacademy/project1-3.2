@@ -1,0 +1,33 @@
+.stockLogo {
+  max-width: 10rem;
+  max-height: 3.5rem;
+  margin: 1rem;
+}
+
+.data {
+  color: #eae7dd;
+  text-align: left;
+  font-size: 1em;
+  padding-left: 2em;
+  font-feature-settings: "ss02" 1, "cv06" 1, "tnum" 1, "case" 1;
+}
+
+.error-loading {
+  font-family: "Geist Mono Variable", monospace, monospace;
+  text-align: left;
+}
+
+#refresh-button {
+  padding-top: 0.5em;
+  padding-right: 0.25em;
+  text-align: right;
+  margin-bottom: -2em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0em;
+  li {
+    margin-bottom: 0.75em;
+  }
+}
