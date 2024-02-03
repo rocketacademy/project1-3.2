@@ -18,3 +18,5 @@ export function getTwoQuestions(questions) {
   // Return the selected questions
   return [question1, question2];
 }
+
+
