@@ -62,9 +62,9 @@ const Question = ({
   const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
   return (
-    <div className="flex flex-col border-2 p-8 rounded-xl">
+    <div className="flex flex-col border-gray-600 border-2 p-8 rounded-xl bg-[#202848]">
       <p className="text-xl">{lives} lives</p>
-      <h3 className="mb-4 text-2xl">{title}</h3>
+      <h3 className="mb-4 text-lg font-semibold p-2 text-left">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
       {shuffledOptions.map((option) => {
         return (
@@ -72,7 +72,7 @@ const Question = ({
             type="button"
             key={option}
             onClick={() => handleClick(option)}
-            className="border-2 my-2 rounded-2xl p-4 text-xl text-left pl-6 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out"
+            className="border-2 my-2 rounded-xl p-4 text-xl text-left pl-6 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out"
           >
             {option}
           </button>
