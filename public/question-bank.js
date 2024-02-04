@@ -27,6 +27,15 @@ const questionBank = [
     difficulty: "Easy",
     source: "Placeholder",
   },
+  {
+    id: 3,
+    title: "Guess the song",
+    type: "soundbite",
+    options: ["Yellow", "Viva La Vida", "There She Goes", "Collide"],
+    correctAnswer: "Viva La Vida",
+    difficulty: "Easy",
+    source: "soundbite-3.mp3",
+  },
 ];
 
 export default questionBank;

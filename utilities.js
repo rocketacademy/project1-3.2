@@ -19,4 +19,3 @@ export function getTwoQuestions(questions) {
   return [question1, question2];
 }
 
-

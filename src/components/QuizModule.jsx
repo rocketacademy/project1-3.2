@@ -16,6 +16,9 @@ const QuizModule = () => {
   // Access Q1
   const currentQuestion = questions[currentQuestionIndex];
 
+  // Use state to store no. of lives
+  const [lives, setLives] = useState(4);
+
   // // Function to handle option select to move to next question
   // const handleClick = () => {
   //   if (currentQuestionIndex === 0) {
@@ -27,7 +30,7 @@ const QuizModule = () => {
   return (
     <>
       <div className="w-[24rem]">
-        <Question {...currentQuestion} currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex}/>
+        <Question {...currentQuestion} currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex} lives={lives} setLives={setLives}/>
       </div>
     </>
   );
