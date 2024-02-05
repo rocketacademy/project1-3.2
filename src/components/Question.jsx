@@ -6,6 +6,7 @@ import Player from "./Player";
 // Play sound effects on correct and wrong answers
 const correctAnswerSound = new Audio("../../media/correct.mp3");
 const wrongAnswerSound = new Audio("../../media/wrong.mp3");
+const gameOverSound = new Audio("../../media/gameover.wav");
 
 const Question = ({
   title,
@@ -25,8 +26,10 @@ const Question = ({
   const checkLives = () => {
     const newLives = lives - 1;
     setLives(newLives); // Lose a life
-    if (newLives === 0) {
-      console.log("Game over!");
+    if (newLives !== 0) {
+      wrongAnswerSound.play();
+    } else if (newLives === 0) {
+      gameOverSound.play();
     }
   };
 
@@ -53,18 +56,16 @@ const Question = ({
         }, 1200);
       }
     } else {
-      wrongAnswerSound.play();
-      checkLives()
+      checkLives();
     }
   };
 
-  // Function to shuffle the options of a question
+  // Shuffle the options of a question
   const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
   return (
-    <div className="flex flex-col border-gray-600 border-2 p-8 rounded-xl bg-[#202848]">
-      <p className="text-xl">{lives} lives</p>
-      <h3 className="mb-4 text-lg font-semibold p-2 text-left">{title}</h3>
+    <div className="flex flex-col px-8 py-2">
+      <h3 className="text-lg font-semibold p-1 text-left my-2">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
       {shuffledOptions.map((option) => {
         return (
@@ -72,7 +73,7 @@ const Question = ({
             type="button"
             key={option}
             onClick={() => handleClick(option)}
-            className="border-2 my-2 rounded-xl p-4 text-xl text-left pl-6 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out"
+            className="border-2 my-2 rounded-xl p-3 text-lg text-left pl-6 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out"
           >
             {option}
           </button>

@@ -9,8 +9,8 @@ const Title = () => {
       <TitleLetter letter="D" color="#5C6060" />
       <TitleLetter letter="L" color="#C8B661" position="12" />
       <TitleLetter letter="E" color="#5C6060" />
-      <div className="-ml-8 mt-4">
-        <img src="../public/plus.svg" width="200" />
+      <div className="-ml-4">
+        <img src="../public/plus.svg" width="150" />
       </div>
       {/* <div className="ml-4">
         <img src="../public/plus1.svg" width="80" />
