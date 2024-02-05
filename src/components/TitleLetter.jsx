@@ -1,7 +1,7 @@
 const TitleLetter = ({ letter, color, position = 0 }) => {
   return (
     <div
-      className="text-5xl mr-4 p-4 w-20 h-20 flex justify-center items-center rounded-lg font-semibold"
+      className="text-3xl mr-4 p-4 w-14 h-14 flex justify-center items-center rounded-lg font-semibold"
       style={{
         backgroundColor: color,
         transform: `translateY(-${position}px)`,
