@@ -1,6 +1,6 @@
-import questionBank from "../../public/question-bank";
+import questionBank from "../../question-bank";
 import Question from "./Question";
-import { getTwoQuestions } from "../../utilities";
+import { getTwoQuestions } from "../../../utilities";
 import { useState } from "react";
 import HeartContainer from "./HeartContainer";
 

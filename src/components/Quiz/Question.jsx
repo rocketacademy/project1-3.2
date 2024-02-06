@@ -6,7 +6,7 @@ import Player from "./Player";
 // Play sound effects on correct and wrong answers
 const correctAnswerSound = new Audio("../../media/correct.mp3");
 const wrongAnswerSound = new Audio("../../media/wrong.mp3");
-const gameOverSound = new Audio("../../media/gameover.wav");
+const gameOverSound = new Audio("../../media/gameover.mp3");
 
 const Question = ({
   title,
