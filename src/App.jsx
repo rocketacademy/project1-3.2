@@ -5,7 +5,7 @@ import { useState } from "react";
 import WordleModule from "./components/Wordle/WordleModule";
 
 function App() {
-  const [gameState, setGameState] = useState("guess"); // quiz, guess, win, lose
+  const [gameState, setGameState] = useState("quiz"); // quiz, guess, won, lost
 
   // Use state to store no. of lives
   const [lives, setLives] = useState(4);
@@ -14,10 +14,11 @@ function App() {
     <>
       <Title />
       <div className="flex">
-        <WordleModule />
+        <WordleModule gameState={gameState} setGameState={setGameState} />
         <QuizModule
           lives={lives}
           setLives={setLives}
+          gameState={gameState}
           setGameState={setGameState}
         />
       </div>

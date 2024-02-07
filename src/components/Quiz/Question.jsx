@@ -27,9 +27,7 @@ const Question = ({
   const [showMinusOne, setShowMinusOne] = useState(false);
 
   // Function to check lives and end game if lives are 0
-  const checkLives = () => {
-    const newLives = lives - 1;
-    setLives(newLives); // Lose a life
+  const checkLives = (newLives) => {
     if (newLives !== 0) {
       wrongAnswerSound.play();
       setShowMinusOne(true);
@@ -39,7 +37,6 @@ const Question = ({
     } else if (newLives === 0) {
       gameOverSound.play();
       setGameState("lose");
-      console.log("Game Over");
     }
   };
 
@@ -57,11 +54,18 @@ const Question = ({
         }, 1200);
       } else {
         setTimeout(() => {
+          setGameState("guess");
           console.log("Go to guess state");
         }, 1200);
       }
     } else {
-      checkLives();
+      const newLives = lives - 1;
+      setLives(newLives); // Lose a life
+      checkLives(newLives);
+      setTimeout(() => {
+        setGameState("guess");
+        console.log("Go to guess state");
+      }, 1200);
     }
   };
 

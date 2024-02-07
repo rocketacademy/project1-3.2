@@ -7,7 +7,7 @@ import HeartContainer from "./HeartContainer";
 // use random generator function to retrieve an array of 2 questions
 const selectedQuestions = getTwoQuestions(questionBank);
 
-const QuizModule = ({ setGameState, lives, setLives }) => {
+const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
   // Use state to store 2 selected questions
   const [questions, setQuestions] = useState(selectedQuestions);
 
@@ -25,33 +25,46 @@ const QuizModule = ({ setGameState, lives, setLives }) => {
   //   // TODO-write logic for 2nd QN
   // }
 
+  const centerMessage = () => {
+    if (gameState === "guess") {
+      return `flex justify-center items-center`;
+    }
+    return "";
+  };
+
   return (
     <>
-      <div className="w-[40rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto">
-        <div className="flex justify-between bg-[#263056] rounded-t-xl px-8 py-4">
-          <p className="text-left p-1 text-xl text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
-            <span className="text-sm tracking-wider font-semibold mr-1">
-              QUESTION
-            </span>{" "}
-            {currentQuestionIndex + 1} / 2
-          </p>
-          {lives ? (
-            <HeartContainer lives={lives} />
-          ) : (
-            <div className="fade my-auto text-red-500 font-semibold tracking-wider">
-              NO LIVES LEFT !
-            </div>
-          )}
-        </div>
-        <Question
-          {...currentQuestion}
-          currentQuestionIndex={currentQuestionIndex}
-          setCurrentQuestionIndex={setCurrentQuestionIndex}
-          lives={lives}
-          setLives={setLives}
-          setGameState={setGameState}
-        />
-        
+      <div
+        className={`w-[40rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto ${centerMessage()}`}
+      >
+        {gameState === "quiz" && (
+          <div className="flex justify-between bg-[#263056] rounded-t-xl px-8 py-4">
+            <p className="text-left p-1 text-xl text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
+              <span className="text-sm tracking-wider font-semibold mr-1">
+                QUESTION
+              </span>{" "}
+              {currentQuestionIndex + 1} / 2
+            </p>
+            {lives ? (
+              <HeartContainer lives={lives} />
+            ) : (
+              <div className="fade my-auto text-red-500 font-semibold tracking-wider">
+                NO LIVES LEFT !
+              </div>
+            )}
+          </div>
+        )}
+        {gameState === "quiz" && (
+          <Question
+            {...currentQuestion}
+            currentQuestionIndex={currentQuestionIndex}
+            setCurrentQuestionIndex={setCurrentQuestionIndex}
+            lives={lives}
+            setLives={setLives}
+            setGameState={setGameState}
+          />
+        )}
+        {gameState === "guess" && <div>Guess the Secret Word!</div>}
       </div>
     </>
   );
