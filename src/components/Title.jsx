@@ -2,7 +2,7 @@ import TitleLetter from "./TitleLetter";
 
 const Title = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-center mb-4">
       <TitleLetter letter="W" color="#43a9c8" position="12" />
       <TitleLetter letter="O" color="#ec816c" />
       <TitleLetter letter="R" color="#43a9c8" position="12" />
@@ -12,9 +12,6 @@ const Title = () => {
       <div className="-ml-4">
         <img src="../public/plus.svg" width="100" />
       </div>
-      {/* <div className="ml-4">
-        <img src="../public/plus1.svg" width="80" />
-      </div> */}
     </div>
   );
 };

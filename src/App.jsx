@@ -13,12 +13,14 @@ function App() {
   return (
     <>
       <Title />
-      <WordleModule />
-      <QuizModule
-        lives={lives}
-        setLives={setLives}
-        setGameState={setGameState}
-      />
+      <div className="flex">
+        <WordleModule />
+        <QuizModule
+          lives={lives}
+          setLives={setLives}
+          setGameState={setGameState}
+        />
+      </div>
     </>
   );
 }

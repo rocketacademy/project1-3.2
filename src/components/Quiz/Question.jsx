@@ -77,14 +77,14 @@ const Question = ({
       )}
       <h3 className="text-lg font-semibold p-1 text-left my-2">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
-      <div className="grid grid-cols-2 grid-rows-2 gap-4 mt-4">
+      <div className="flex flex-col my-4">
         {shuffledOptions.map((option) => {
           return (
             <button
               type="button"
               key={option}
               onClick={() => handleClick(option)}
-              className="border-2 border-gray-600 rounded-xl p-3 text-md text-gray-400 hover:text-gray-100 text-left pl-4 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out"
+              className="border-2 border-gray-600 rounded-xl p-4 text-md text-gray-400 hover:text-gray-100 text-left pl-4 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out my-2"
             >
               {option}
             </button>

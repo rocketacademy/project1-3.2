@@ -27,8 +27,8 @@ const QuizModule = ({ setGameState, lives, setLives }) => {
 
   return (
     <>
-      <div className="w-[28rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto mt-4">
-        <div className="flex justify-between bg-[#263056] rounded-t-xl px-8 py-4 relative">
+      <div className="w-[40rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto">
+        <div className="flex justify-between bg-[#263056] rounded-t-xl px-8 py-4">
           <p className="text-left p-1 text-xl text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
             <span className="text-sm tracking-wider font-semibold mr-1">
               QUESTION
@@ -51,6 +51,7 @@ const QuizModule = ({ setGameState, lives, setLives }) => {
           setLives={setLives}
           setGameState={setGameState}
         />
+        
       </div>
     </>
   );

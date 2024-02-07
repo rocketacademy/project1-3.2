@@ -27,7 +27,7 @@ const WordleModule = () => {
   };
 
   return (
-    <div>
+    <div className="w-[80%] mr-12">
       <GuessResults guesses={guesses} answer={answer} />
       <GuessInput
         handleSubmitGuess={handleSubmitGuess}
