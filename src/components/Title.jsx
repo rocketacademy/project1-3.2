@@ -3,12 +3,12 @@ import TitleLetter from "./TitleLetter";
 const Title = () => {
   return (
     <div className="flex items-center">
-      <TitleLetter letter="W" color="#2CAD55" position="12" />
-      <TitleLetter letter="O" color="#C8B661" />
-      <TitleLetter letter="R" color="#2CAD55" position="12" />
-      <TitleLetter letter="D" color="#5C6060" />
-      <TitleLetter letter="L" color="#C8B661" position="12" />
-      <TitleLetter letter="E" color="#5C6060" />
+      <TitleLetter letter="W" color="#15933d" position="12" />
+      <TitleLetter letter="O" color="#b8a131" />
+      <TitleLetter letter="R" color="#15933d" position="12" />
+      <TitleLetter letter="D" color="#3c3f3f" />
+      <TitleLetter letter="L" color="#b8a131" position="12" />
+      <TitleLetter letter="E" color="#3c3f3f" />
       <div className="-ml-4">
         <img src="../public/plus.svg" width="100" />
       </div>

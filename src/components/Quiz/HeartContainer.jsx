@@ -1,8 +1,6 @@
 import { FaHeart } from "react-icons/fa";
 
 const HeartContainer = ({ lives }) => {
-
-  
   return (
     <div className="flex items-center">
       {Array.from({ length: lives }).map((_, index) => (

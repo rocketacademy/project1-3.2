@@ -16,16 +16,48 @@
 }
 
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-move {
-  0% {opacity: 0; transform: translateY(0);}
-  50% {opacity: 1; transform: translateY(-5px);}
-  100% {opacity: 0; transform: translateY(0);}
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-move {
   animation: fade-move 1s;
+}
+
+.correct {
+  background-color: #15933d;
+  border-color: #15933d;
+  color: white;
+}
+
+.incorrect {
+  background-color: #3c3f3f;
+  border-color: #3c3f3f;
+  color: white;
+}
+
+.misplaced {
+  background-color: #b8a131;
+  border-color: #b8a131;
+
+  color: white;
 }
