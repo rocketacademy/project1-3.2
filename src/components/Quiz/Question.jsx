@@ -55,7 +55,6 @@ const Question = ({
       } else {
         setTimeout(() => {
           setGameState("guess");
-          console.log("Go to guess state");
         }, 1200);
       }
     } else {
@@ -64,7 +63,6 @@ const Question = ({
       checkLives(newLives);
       setTimeout(() => {
         setGameState("guess");
-        console.log("Go to guess state");
       }, 1200);
     }
   };

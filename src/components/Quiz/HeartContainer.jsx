@@ -2,7 +2,7 @@ import { FaHeart } from "react-icons/fa";
 
 const HeartContainer = ({ lives }) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center p-1">
       {Array.from({ length: lives }).map((_, index) => (
         <FaHeart
           key={index}

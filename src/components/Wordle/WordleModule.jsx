@@ -28,7 +28,9 @@ const WordleModule = ({ gameState, setGameState }) => {
 
   return (
     <div
-      className={`w-[80%] mr-12 opacity-${gameState === "quiz" ? "20" : "100"}`}
+      className={`w-[30rem] mr-12 ${
+        gameState === "guess" ? "opacity-100" : "opacity-30"
+      }`}
     >
       <GuessResults guesses={guesses} answer={answer} />
       {gameState === "guess" && (
