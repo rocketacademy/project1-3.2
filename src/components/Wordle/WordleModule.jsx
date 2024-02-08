@@ -6,6 +6,10 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../../utilities";
 import WonBanner from "./WonBanner";
 import LostBanner from "./LostBanner";
 
+// Play sound effects on correct and wrong answers
+const gameWonSound = new Audio("../../public/media/gamewin.mp3");
+const gameOverSound = new Audio("../../public/media/gameover.mp3");
+
 // Randomly select a word and set it to state
 const answer = WORDS[Math.floor(Math.random() * WORDS.length)];
 console.log("answer", answer);
@@ -19,19 +23,25 @@ const WordleModule = ({ gameState, setGameState }) => {
     setGuesses(nextGuesses);
     if (tentativeGuess.toUpperCase() === answer) {
       setGameState("won");
+      gameWonSound.play();
     } else if (nextGuesses.length >= NUM_OF_GUESSES_ALLOWED) {
       setGameState("lost");
+      gameOverSound.play();
     } else {
       setGameState("quiz");
     }
   };
 
+  const setOpacity = () => {
+    if (gameState === "quiz") {
+      return "opacity-30";
+    } else {
+      return "opacity-100";
+    }
+  };
+
   return (
-    <div
-      className={`w-[30rem] mr-12 ${
-        gameState === "guess" ? "opacity-100" : "opacity-30"
-      }`}
-    >
+    <div className={`w-[30rem] mr-12 ${setOpacity()}`}>
       <GuessResults guesses={guesses} answer={answer} />
       {gameState === "guess" && (
         <GuessInput
@@ -39,7 +49,11 @@ const WordleModule = ({ gameState, setGameState }) => {
           gameStatus={gameState}
         />
       )}
-      {gameState === "quiz" && <p>Quiz state now.</p>}
+      {gameState === "quiz" && (
+        <div className="text-xl mt-8">
+          Answer 2 questions to guess the secret word ➡️
+        </div>
+      )}
       {gameState === "won" && <WonBanner numOfGuesses={guesses.length} />}
       {gameState === "lost" && <LostBanner answer={answer} />}
     </div>

@@ -12,7 +12,6 @@ const GuessInput = ({ handleSubmitGuess, gameStatus }) => {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
         value={tentativeGuess}
@@ -23,7 +22,15 @@ const GuessInput = ({ handleSubmitGuess, gameStatus }) => {
         title="Enter a 5 letter word"
         required
         disabled={gameStatus === "lost"}
+        className="py-2 px-4 rounded-md mt-4 border-2 border-gray-700 focus:outline-none focus:border-gray-500 bg-slate-800"
+        autoFocus
       />
+      <button
+        type="submit"
+        className="py-2 px-4 ml-8 rounded-md mt-4 hover:bg-sky-800 transition duration-300 ease-in-out bg-sky-700"
+      >
+        Submit Guess
+      </button>
     </form>
   );
 };

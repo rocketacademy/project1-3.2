@@ -33,10 +33,11 @@ const Question = ({
       setShowMinusOne(true);
       setTimeout(() => {
         setShowMinusOne(false);
+        setGameState("guess");
       }, 800);
     } else if (newLives === 0) {
       gameOverSound.play();
-      setGameState("lose");
+      setGameState("lost");
     }
   };
 
@@ -61,9 +62,6 @@ const Question = ({
       const newLives = lives - 1;
       setLives(newLives); // Lose a life
       checkLives(newLives);
-      setTimeout(() => {
-        setGameState("guess");
-      }, 1200);
     }
   };
 

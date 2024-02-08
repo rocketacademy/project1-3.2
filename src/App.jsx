@@ -10,6 +10,8 @@ function App() {
   // Use state to store no. of lives
   const [lives, setLives] = useState(4);
 
+  
+
   return (
     <>
       <Title />

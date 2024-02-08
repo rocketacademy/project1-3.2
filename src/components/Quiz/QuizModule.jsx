@@ -17,19 +17,18 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
   // Access Q1
   const currentQuestion = questions[currentQuestionIndex];
 
-  // const positionHearts = () => {
-  //   if (gameState === "quiz") {
-  //     return `flex justify-center items-center`;
-  //   }
-  //   return "";
-  // };
+  const setOpacity = () => {
+    if (gameState === "guess") {
+      return "opacity-30";
+    } else {
+      return "opacity-100";
+    }
+  };
 
   return (
     <>
       <div
-        className={`w-[30rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto ${
-          gameState === "quiz" ? "opacity-100" : "opacity-30"
-        }`}
+        className={`w-[30rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto ${setOpacity()}`}
       >
         <div
           className={`flex ${
