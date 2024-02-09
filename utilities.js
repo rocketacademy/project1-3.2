@@ -1,27 +1,35 @@
-// Function to randomly generate 2 questions from question bank
+// Get a random index ranging from 0 (inclusive) to max (exclusive).
+const getRandomIndex = (max) => Math.floor(Math.random() * max);
 
-export function getTwoQuestions(questions) {
-  // Make a copy of the original question bank
-  const copyQuestions = [...questions];
-
-  // Randomly select 1st question from the question bank
-  const index1 = Math.floor(Math.random() * copyQuestions.length);
-  const question1 = copyQuestions[index1];
-
-  // Remove the selected question from the copy to avoid duplicates
-  copyQuestions.splice(index1, 1);
-
-  // Randomly select 2nd question from the copy question bank
-  const index2 = Math.floor(Math.random() * copyQuestions.length);
-  const question2 = copyQuestions[index2];
-
-  // Return the selected questions
-  return [question1, question2];
-}
+// Shuffle list of questions
+export const shuffleQuestions = (questions) => {
+  // Loop over the array of questions
+  for (
+    let currentIndex = 0;
+    currentIndex < questions.length;
+    currentIndex += 1
+  ) {
+    // Select a random index
+    const randomIndex = getRandomIndex(questions.length);
+    // Select the question that corresponds to randomIndex
+    let randomQuestion = questions[randomIndex];
+    // Randomize order of options of the randomQuestion
+    randomQuestion.options.sort(() => Math.random() - 0.5);
+    // Select the question that corresponds to currentIndex
+    let currentQuestion = questions[currentIndex];
+    // Randomize order of options of the currentQuestion
+    currentQuestion.options.sort(() => Math.random() - 0.5);
+    // Swap positions of randomQuestion and currentQuestion in the deck
+    questions[currentIndex] = randomQuestion;
+    questions[randomIndex] = currentQuestion;
+  }
+  // Return the shuffled deck
+  return questions;
+};
 
 // Generate 6 rows for wordle game
-export const NUM_OF_GUESSES_ALLOWED = 6
- 
+export const NUM_OF_GUESSES_ALLOWED = 6;
+
 export const range = (start, end, step = 1) => {
   let output = [];
   if (typeof end === "undefined") {

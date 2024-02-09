@@ -36,6 +36,44 @@ const questionBank = [
     difficulty: "Easy",
     source: "soundbite-3.mp3",
   },
+  {
+    id: 4,
+    title: "Who is Spiderman?",
+    type: "trivia",
+    options: ["Miles Morales", "Peter Pakey", "Roman Reigns", "Johnny Fire"],
+    correctAnswer: "Miles Morales",
+    difficulty: "Easy",
+    source: null,
+  },
+  {
+    id: 5,
+    title:
+      "Who is the author of the Harry Potter series?",
+    type: "trivia",
+    options: [
+      "Stephanie Meyer",
+      "J.K Rowling",
+      "George R.R Martin",
+      "Jordin Sparks",
+    ],
+    correctAnswer: "J.K Rowling",
+    difficulty: "Easy",
+    source: null,
+  },
+  {
+    id: 6,
+    title: "What is React JS?",
+    type: "trivia",
+    options: [
+      "Framework",
+      "Programming Language",
+      "UI Library",
+      "Data Structure",
+    ],
+    correctAnswer: "UI Library",
+    difficulty: "Easy",
+    source: null,
+  },
 ];
 
 export default questionBank;

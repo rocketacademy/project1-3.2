@@ -1,17 +1,21 @@
 import questionBank from "../../question-bank";
 import Question from "./Question";
-import { getTwoQuestions } from "../../../utilities";
+import { shuffleQuestions } from "../../../utilities";
 import { useState } from "react";
 import HeartContainer from "./HeartContainer";
 
-// use random generator function to retrieve an array of 2 questions
-const selectedQuestions = getTwoQuestions(questionBank);
+const shuffledQuestions = shuffleQuestions(questionBank);
+
+const getTwoQuestions = [shuffledQuestions.pop(), shuffledQuestions.pop()];
 
 const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
-  // Use state to store 2 selected questions
-  const [questions, setQuestions] = useState(selectedQuestions);
+  // Store set of shuffled questions for current game
+  const [gameQuestions, setGameQuestions] = useState(shuffledQuestions);
 
-  // Use state to store current question index (default 0)
+  // Store 2 selected questions
+  const [questions, setQuestions] = useState(getTwoQuestions);
+
+  // Store current question index (default 0)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   // Access Q1
@@ -60,6 +64,9 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
             lives={lives}
             setLives={setLives}
             setGameState={setGameState}
+            setQuestions={setQuestions}
+            gameQuestions={gameQuestions}
+            setGameQuestions={setGameQuestions}
           />
         )}
         {gameState === "guess" && (

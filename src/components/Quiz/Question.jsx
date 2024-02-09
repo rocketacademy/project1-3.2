@@ -19,6 +19,9 @@ const Question = ({
   lives,
   setLives,
   setGameState,
+  gameQuestions,
+  setQuestions,
+  setGameQuestions
 }) => {
   // use state to store number of questions answered for progress bar
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
@@ -56,17 +59,28 @@ const Question = ({
       } else {
         setTimeout(() => {
           setGameState("guess");
+          // draw 2 more qns from gameQuestions
+          const gameQuestionsCopy = [...gameQuestions];
+          const nextQuestions = [
+            gameQuestionsCopy.pop(),
+            gameQuestionsCopy.pop(),
+          ];
+          setQuestions(nextQuestions);
+          setGameQuestions(gameQuestionsCopy);
+          setCurrentQuestionIndex(0);
         }, 1200);
       }
     } else {
       const newLives = lives - 1;
       setLives(newLives); // Lose a life
       checkLives(newLives);
+      setTimeout(() => {
+        const newQuestions = [gameQuestions.pop(), gameQuestions.pop()];
+        setQuestions(newQuestions);
+        setCurrentQuestionIndex(0);
+      }, 1200);
     }
   };
-
-  // Shuffle the options of a question
-  const shuffledOptions = options.sort(() => Math.random() - 0.5);
 
   return (
     <div className="flex flex-col px-8 py-2 relative">
@@ -78,7 +92,7 @@ const Question = ({
       <h3 className="text-lg font-semibold p-1 text-left my-2">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
       <div className="flex flex-col my-4">
-        {shuffledOptions.map((option) => {
+        {options.map((option) => {
           return (
             <button
               type="button"
