@@ -3,6 +3,7 @@ import Question from "./Question";
 import { shuffleQuestions } from "../../../utilities";
 import { useState } from "react";
 import HeartContainer from "./HeartContainer";
+import { motion } from "framer-motion";
 
 const shuffledQuestions = shuffleQuestions(questionBank);
 
@@ -31,13 +32,20 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
 
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.7,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
         className={`w-[30rem] border-[#3C4B85] border-[3px] rounded-xl mx-auto ${setOpacity()}`}
       >
         <div
           className={`flex ${
             gameState === "quiz" ? "justify-between" : "justify-end"
-          } bg-[#263056] rounded-t-xl px-8 py-4`}
+          } bg-[#263056] rounded-t-md px-8 py-4`}
         >
           {gameState === "quiz" && (
             <p className="text-left text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
@@ -72,7 +80,7 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
         {gameState === "guess" && (
           <div className="mt-[50%] text-xl">⬅️ Guess the secret word!</div>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };

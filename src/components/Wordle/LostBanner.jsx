@@ -1,10 +1,20 @@
+import { motion } from "framer-motion";
+
 const handleRestart = () => {
   console.log(`Restarting the game (lose)`);
 };
 
 const LostBanner = ({ answer }) => {
   return (
-    <div className="fixed inset-0 w-[300px] h-[300px] mx-auto my-auto rounded-md bg-red-800 flex flex-col items-center justify-between px-8 py-8 text-xl">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.2 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      className="fixed inset-0 w-[300px] h-[300px] mx-auto my-auto rounded-md bg-red-800 flex flex-col items-center justify-between px-8 py-8 text-xl"
+    >
       <div>
         <img src="../../public/lose.svg" alt="lose image" width={100} />
       </div>
@@ -15,7 +25,7 @@ const LostBanner = ({ answer }) => {
       >
         Restart
       </button>
-    </div>
+    </motion.div>
   );
 };
 export default LostBanner;

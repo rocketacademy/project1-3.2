@@ -5,6 +5,7 @@ import { useState } from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../../utilities";
 import WonBanner from "./WonBanner";
 import LostBanner from "./LostBanner";
+import { motion } from "framer-motion";
 
 // Play sound effects on correct and wrong answers
 const gameWonSound = new Audio("../../public/media/gamewin.mp3");
@@ -41,7 +42,16 @@ const WordleModule = ({ gameState, setGameState }) => {
   };
 
   return (
-    <div className={`w-[30rem] mr-12 ${setOpacity()}`}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.4,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      className={`w-[30rem] mr-12 ${setOpacity()}`}
+    >
       <GuessResults guesses={guesses} answer={answer} />
       {gameState === "guess" && (
         <GuessInput
@@ -56,7 +66,7 @@ const WordleModule = ({ gameState, setGameState }) => {
       )}
       {gameState === "won" && <WonBanner numOfGuesses={guesses.length} />}
       {gameState === "lost" && <LostBanner answer={answer} />}
-    </div>
+    </motion.div>
   );
 };
 export default WordleModule;

@@ -1,10 +1,20 @@
+import { motion } from "framer-motion";
+
 const handleRestart = () => {
   console.log(`Restarting the game`);
 };
 
 const WonBanner = ({ numOfGuesses }) => {
   return (
-    <div className="fixed inset-0 w-[300px] h-[300px] mx-auto my-auto rounded-md bg-green-800 flex flex-col items-center justify-between px-8 py-10 text-xl">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.2 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      className="fixed inset-0 w-[300px] h-[300px] mx-auto my-auto rounded-md bg-green-800 flex flex-col items-center justify-between px-8 py-10 text-xl"
+    >
       <div>
         <img src="../../public/win.svg" alt="win image" width={120} />
       </div>
@@ -20,7 +30,7 @@ const WonBanner = ({ numOfGuesses }) => {
       >
         Restart
       </button>
-    </div>
+    </motion.div>
   );
 };
 export default WonBanner;
