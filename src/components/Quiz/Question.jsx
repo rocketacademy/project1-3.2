@@ -21,11 +21,8 @@ const Question = ({
   setGameState,
   gameQuestions,
   setCurrQuestions,
-  setGameQuestions
+  setGameQuestions,
 }) => {
-  // use state to store number of questions answered for progress bar
-  const [questionsAnswered, setQuestionsAnswered] = useState(0);
-
   // Use state to show -1 health animation
   const [showMinusOne, setShowMinusOne] = useState(false);
 
@@ -49,9 +46,6 @@ const Question = ({
     if (option === correctAnswer) {
       correctAnswerSound.play();
       confetti();
-      setQuestionsAnswered(
-        (prevQuestionsAnswered) => prevQuestionsAnswered + 1
-      );
       if (currentQuestionIndex === 0) {
         setCurrentQuestionIndex(1);
       } else {
@@ -88,7 +82,11 @@ const Question = ({
       <h3 className="text-lg font-semibold p-1 text-left my-2">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
       {type === "image" && (
-        <img src={`../../media/question-soundbites/${source}`} width='200' alt="image" />
+        <img
+          src={`../../media/question-soundbites/${source}`}
+          width="200"
+          alt="image"
+        />
       )}
       <div className="flex flex-col my-4">
         {options.map((option) => {
@@ -104,7 +102,7 @@ const Question = ({
           );
         })}
       </div>
-      <ProgressBar questionsAnswered={questionsAnswered} />
+      <ProgressBar questionsAnswered={currentQuestionIndex} />
     </div>
   );
 };
