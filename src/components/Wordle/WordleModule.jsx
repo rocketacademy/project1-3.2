@@ -33,14 +33,6 @@ const WordleModule = ({ gameState, setGameState }) => {
     }
   };
 
-  const setOpacity = () => {
-    if (gameState === "quiz") {
-      return "opacity-30";
-    } else {
-      return "opacity-100";
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -50,7 +42,7 @@ const WordleModule = ({ gameState, setGameState }) => {
         delay: 0.4,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className={`w-[30rem] mr-12 ${setOpacity()}`}
+      className="w-[30rem] mr-12"
     >
       <GuessResults guesses={guesses} answer={answer} />
       {gameState === "guess" && (
@@ -60,9 +52,18 @@ const WordleModule = ({ gameState, setGameState }) => {
         />
       )}
       {gameState === "quiz" && (
-        <div className="text-xl mt-8">
+        <motion.div
+          className="text-xl mt-8"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
           Answer 2 questions to guess the secret word ➡️
-        </div>
+        </motion.div>
       )}
       {gameState === "won" && <WonBanner numOfGuesses={guesses.length} />}
       {gameState === "lost" && <LostBanner answer={answer} />}
