@@ -53,22 +53,18 @@ const Question = ({
         (prevQuestionsAnswered) => prevQuestionsAnswered + 1
       );
       if (currentQuestionIndex === 0) {
-        setTimeout(() => {
-          setCurrentQuestionIndex(1);
-        }, 1200);
+        setCurrentQuestionIndex(1);
       } else {
-        setTimeout(() => {
-          setGameState("guess");
-          // draw 2 more qns from gameQuestions
-          const gameQuestionsCopy = [...gameQuestions];
-          const nextQuestions = [
-            gameQuestionsCopy.pop(),
-            gameQuestionsCopy.pop(),
-          ];
-          setCurrQuestions(nextQuestions);
-          setGameQuestions(gameQuestionsCopy);
-          setCurrentQuestionIndex(0);
-        }, 1200);
+        setGameState("guess");
+        // draw 2 more qns from gameQuestions
+        const gameQuestionsCopy = [...gameQuestions];
+        const nextQuestions = [
+          gameQuestionsCopy.pop(),
+          gameQuestionsCopy.pop(),
+        ];
+        setCurrQuestions(nextQuestions);
+        setGameQuestions(gameQuestionsCopy);
+        setCurrentQuestionIndex(0);
       }
     } else {
       const newLives = lives - 1;
@@ -91,6 +87,9 @@ const Question = ({
       )}
       <h3 className="text-lg font-semibold p-1 text-left my-2">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
+      {type === "image" && (
+        <img src={`../../media/question-soundbites/${source}`} width='200' alt="image" />
+      )}
       <div className="flex flex-col my-4">
         {options.map((option) => {
           return (
