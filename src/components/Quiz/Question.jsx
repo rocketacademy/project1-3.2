@@ -84,7 +84,7 @@ const Question = ({
       {type === "image" && (
         <img
           src={`../../media/question-soundbites/${source}`}
-          width="200"
+          className="rounded-md w-full"
           alt="image"
         />
       )}
