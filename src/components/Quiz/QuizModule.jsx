@@ -13,13 +13,13 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
   const [gameQuestions, setGameQuestions] = useState(shuffledQuestions);
 
   // Store 2 selected questions
-  const [questions, setQuestions] = useState(getTwoQuestions);
+  const [currQuestions, setCurrQuestions] = useState(getTwoQuestions);
 
   // Store current question index (default 0)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   // Access Q1
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = currQuestions[currentQuestionIndex];
 
   const setOpacity = () => {
     if (gameState === "guess") {
@@ -64,7 +64,7 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
             lives={lives}
             setLives={setLives}
             setGameState={setGameState}
-            setQuestions={setQuestions}
+            setCurrQuestions={setCurrQuestions}
             gameQuestions={gameQuestions}
             setGameQuestions={setGameQuestions}
           />

@@ -20,7 +20,7 @@ const Question = ({
   setLives,
   setGameState,
   gameQuestions,
-  setQuestions,
+  setCurrQuestions,
   setGameQuestions
 }) => {
   // use state to store number of questions answered for progress bar
@@ -65,7 +65,7 @@ const Question = ({
             gameQuestionsCopy.pop(),
             gameQuestionsCopy.pop(),
           ];
-          setQuestions(nextQuestions);
+          setCurrQuestions(nextQuestions);
           setGameQuestions(gameQuestionsCopy);
           setCurrentQuestionIndex(0);
         }, 1200);
@@ -76,7 +76,7 @@ const Question = ({
       checkLives(newLives);
       setTimeout(() => {
         const newQuestions = [gameQuestions.pop(), gameQuestions.pop()];
-        setQuestions(newQuestions);
+        setCurrQuestions(newQuestions);
         setCurrentQuestionIndex(0);
       }, 1200);
     }
@@ -98,7 +98,7 @@ const Question = ({
               type="button"
               key={option}
               onClick={() => handleClick(option)}
-              className="border-2 border-gray-600 rounded-xl p-4 text-md text-gray-400 hover:text-gray-100 text-left pl-4 hover:bg-gray-50 hover:bg-opacity-20 transition duration-500 ease-in-out my-2"
+              className="border-2 border-gray-600 rounded-xl p-4 text-md text-white text-left pl-4 hover:bg-gray-700 transition duration-500 ease-in-out my-2"
             >
               {option}
             </button>
