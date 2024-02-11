@@ -70,7 +70,7 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
           />
         )}
         {gameState === "guess" && (
-          <div className="mt-[50%] text-xl">⬅️ Guess the secret word!</div>
+          <div className="mt-[50%] text-xl">Guess the secret word!</div>
         )}
       </motion.div>
     </>

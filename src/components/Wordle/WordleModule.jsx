@@ -62,7 +62,7 @@ const WordleModule = ({ gameState, setGameState }) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          Answer 2 questions to guess the secret word ➡️
+          Answer 2 questions to guess the secret word
         </motion.div>
       )}
       {gameState === "won" && <WonBanner numOfGuesses={guesses.length} />}

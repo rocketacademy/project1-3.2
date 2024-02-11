@@ -183,7 +183,7 @@ const questionBank = [
   },
   {
     id: 18,
-    title: "Which of these is not a term in the game of Golf?",
+    title: "Which of these is NOT a term in the game of Golf?",
     type: "image",
     options: ["Birdie", "Eagle", "Albatross", "Vulture"],
     correctAnswer: "Vulture",
@@ -221,7 +221,7 @@ const questionBank = [
   },
   {
     id: 22,
-    title: "Which movie is Disney's introductory tune from?",
+    title: "Which of these movies is Disney's introductory tune from?",
     type: "soundbite",
     options: [
       "Pinnochio",
@@ -255,6 +255,51 @@ const questionBank = [
     options: ["Germany", "Italy", "France", "Sweden"],
     correctAnswer: "France",
     source: "q25.jpg",
+  },
+  {
+    id: 26,
+    title: "Which of these is the national animal of Greece?",
+    type: "trivia",
+    options: ["Fox", "Deer", "Dolphin", "Marlin"],
+    correctAnswer: "Dolphin",
+    source: null,
+  },
+  {
+    id: 27,
+    title: "Which of these plants is NOT in the hit game 'Plants vs. Zombies'?",
+    type: "image",
+    options: ["Sunflower", "Peashooter", "Honeycomb", "Starfruit"],
+    correctAnswer: "Honeycomb",
+    source: "q27.jpg",
+  },
+  {
+    id: 28,
+    title: "Which is the rarest blood type in humans?",
+    type: "trivia",
+    options: ["AB-", "AB+", "B", "O"],
+    correctAnswer: "AB-",
+    source: null,
+  },
+  {
+    id: 29,
+    title: "What is the symbol of Gold in the Periodic Table?",
+    type: "trivia",
+    options: ["Go", "Au", "Gl", "Si"],
+    correctAnswer: "Au",
+    source: null,
+  },
+  {
+    id: 30,
+    title: "Name this hit Netflix series?",
+    type: "soundbite",
+    options: [
+      "Stranger Things",
+      "The Umbrella Academy",
+      "The Sandman",
+      "The Witcher",
+    ],
+    correctAnswer: "Stranger Things",
+    source: "q30.mp3",
   },
 ];
 

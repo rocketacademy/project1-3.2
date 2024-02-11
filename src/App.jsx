@@ -3,6 +3,7 @@ import QuizModule from "./components/Quiz/QuizModule";
 import Title from "./components/Title";
 import { useState } from "react";
 import WordleModule from "./components/Wordle/WordleModule";
+import Help from "./components/Help";
 
 function App() {
   const [gameState, setGameState] = useState("quiz"); // quiz, guess, won, lost
@@ -21,6 +22,7 @@ function App() {
           gameState={gameState}
           setGameState={setGameState}
         />
+        <Help />
       </div>
     </>
   );
