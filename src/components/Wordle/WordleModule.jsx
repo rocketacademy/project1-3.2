@@ -8,8 +8,8 @@ import LostBanner from "./LostBanner";
 import { motion } from "framer-motion";
 
 // Play sound effects on correct and wrong answers
-const gameWonSound = new Audio("../../public/media/gamewin.mp3");
-const gameOverSound = new Audio("../../public/media/gameover.mp3");
+const gameWonSound = new Audio("/media/gamewin.mp3");
+const gameOverSound = new Audio("/media/gameover.mp3");
 
 // Randomly select a word and set it to state
 const answer = WORDS[Math.floor(Math.random() * WORDS.length)];

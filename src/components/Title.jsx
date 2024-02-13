@@ -25,7 +25,7 @@ const Title = () => {
       <TitleLetter letter="L" color="#ec19d7" position="12" />
       <TitleLetter letter="E" color="#ec1947" />
       <div className="-ml-4">
-        <img src="../public/plus.svg" width="100" />
+        <img src="/plus.svg" width="100" />
       </div>
     </motion.div>
   );

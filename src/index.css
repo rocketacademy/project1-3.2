@@ -24,7 +24,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(-45deg, #300e3a, #0a1b28, #111236, #242649);
+  background: linear-gradient(-45deg, #22092a, #0a2134, #0d1f25, #212246);
 	background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }

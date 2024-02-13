@@ -192,7 +192,7 @@ const questionBank = [
   {
     id: 19,
     title:
-      "In what country did the first Starbucks open outside of North America",
+      "In what country did the first Starbucks open outside of North America?",
     type: "image",
     options: ["Japan", "Canada", "England", "Peru"],
     correctAnswer: "Japan",

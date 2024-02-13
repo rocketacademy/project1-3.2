@@ -32,7 +32,7 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
           delay: 0.7,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className='w-[30rem] border-[#3C4B85] border-[3px] rounded-md mx-auto'
+        className="w-[30rem] border-[#3C4B85] border-[3px] rounded-md mx-auto"
       >
         <div
           className={`flex ${
@@ -55,7 +55,6 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
             </div>
           )}
         </div>
-
         {gameState === "quiz" && (
           <Question
             {...currentQuestion}

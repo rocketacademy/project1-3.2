@@ -26,6 +26,12 @@ const Question = ({
   // Use state to show -1 health animation
   const [showMinusOne, setShowMinusOne] = useState(false);
 
+  // Use state to track questions answered
+  const [questionsAnswered, setQuestionsAnswered] = useState(0);
+
+  // Track intermediate loading state
+  const [isAnswered, setIsAnswered] = useState(false);
+
   // Function to check lives and end game if lives are 0
   const checkLives = (newLives) => {
     if (newLives !== 0) {
@@ -46,31 +52,49 @@ const Question = ({
     if (option === correctAnswer) {
       correctAnswerSound.play();
       confetti();
+      setIsAnswered(true);
       if (currentQuestionIndex === 0) {
-        setCurrentQuestionIndex(1);
+        setQuestionsAnswered(1);
+        setTimeout(() => {
+          setCurrentQuestionIndex(1);
+          setIsAnswered(false);
+        }, 1200);
       } else {
-        setGameState("guess");
-        // draw 2 more qns from gameQuestions
-        const gameQuestionsCopy = [...gameQuestions];
-        const nextQuestions = [
-          gameQuestionsCopy.pop(),
-          gameQuestionsCopy.pop(),
-        ];
-        setCurrQuestions(nextQuestions);
-        setGameQuestions(gameQuestionsCopy);
-        setCurrentQuestionIndex(0);
+        setQuestionsAnswered(2);
+        setIsAnswered(true);
+        setTimeout(() => {
+          setGameState("guess");
+          // draw 2 more qns from gameQuestions
+          const gameQuestionsCopy = [...gameQuestions];
+          const nextQuestions = [
+            gameQuestionsCopy.pop(),
+            gameQuestionsCopy.pop(),
+          ];
+          setCurrQuestions(nextQuestions);
+          setGameQuestions(gameQuestionsCopy);
+          setCurrentQuestionIndex(0);
+          setIsAnswered(false);
+        }, 1200);
       }
     } else {
       const newLives = lives - 1;
       setLives(newLives); // Lose a life
       checkLives(newLives);
+      setIsAnswered(true);
+
       setTimeout(() => {
         const newQuestions = [gameQuestions.pop(), gameQuestions.pop()];
         setCurrQuestions(newQuestions);
         setCurrentQuestionIndex(0);
+        setIsAnswered(false);
       }, 1200);
     }
   };
+
+  // Disable buttons after answering to prevent double submission of responses
+  const disableButtons = isAnswered
+    ? `hover:bg-gray-700 cursor-not-allowed opacity-30`
+    : `hover:bg-gray-700 cursor-pointer`;
 
   return (
     <div className="flex flex-col px-8 py-2 relative">
@@ -95,14 +119,15 @@ const Question = ({
               type="button"
               key={option}
               onClick={() => handleClick(option)}
-              className="border-2 border-gray-600 rounded-xl p-4 text-md text-white text-left pl-4 hover:bg-gray-700 transition duration-500 ease-in-out my-2"
+              className={`border-2 border-gray-600 rounded-xl p-4 text-md text-white text-left pl-4 transition duration-500 ease-in-out my-2 ${disableButtons}`}
+              disabled={isAnswered}
             >
               {option}
             </button>
           );
         })}
       </div>
-      <ProgressBar questionsAnswered={currentQuestionIndex} />
+      <ProgressBar questionsAnswered={questionsAnswered} />
     </div>
   );
 };
