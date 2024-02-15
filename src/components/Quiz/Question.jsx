@@ -97,22 +97,23 @@ const Question = ({
     : `hover:bg-gray-700 cursor-pointer`;
 
   return (
-    <div className="flex flex-col px-8 py-2 relative">
+    <div className="flex flex-col px-8 py-2 relative flex-grow">
       {showMinusOne && (
         <div className="absolute right-5 -top-8 font-semibold text-xl animate-fade-move">
           -1
         </div>
       )}
-      <h3 className="text-lg font-semibold p-1 text-left my-2">{title}</h3>
+      <h3 className="text-md font-semibold p-1 text-left mt-2 mb-2 lg:text-lg">{title}</h3>
       {type === "soundbite" && <Player source={source} />}
       {type === "image" && (
         <img
           src={`/src/assets/question-soundbites/${source}`}
-          className="rounded-md w-full"
+          className="rounded-md w-3/4 mb-2"
           alt="image"
+
         />
       )}
-      <div className="flex flex-col my-4">
+      <div className="flex flex-col my-2">
         {options.map((option) => {
           return (
             <button

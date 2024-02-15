@@ -32,14 +32,14 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
           delay: 0.7,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className="w-[22rem] mt-4 border-[#3C4B85] border-[3px] rounded-md"
+        className="w-[22rem] mt-4 border-[#3C4B85] border-[3px] rounded-md lg:mt-0 lg:w-[40%]"
       >
         <div
           className={`flex justify-between items-center
          bg-[#263056] rounded-t px-8 py-4`}
         >
           {gameState === "quiz" && (
-            <p className="text-left text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
+            <p className="text-left text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold text-sm">
               <span className="text-sm tracking-wider font-semibold mr-1">
                 QUESTION
               </span>{" "}
@@ -49,7 +49,7 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
           {(gameState === "guess" ||
             gameState === "won" ||
             gameState === "lost") && (
-            <p className="text-left text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
+            <p className="text-left text-gray-400 font-semibold">
               Guess the word
             </p>
           )}

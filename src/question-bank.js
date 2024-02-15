@@ -108,7 +108,7 @@ const questionBank = [
   },
   {
     id: 10,
-    title: "Who co-founded Apple Inc. alongside Steve Jobs?",
+    title: "Who co-founded Apple with Steve Jobs?",
     type: "trivia",
     options: ["Bill Gates", "Steve Wozniak", "Mark Zuckerberg", "Jeff Bezos"],
     correctAnswer: "Steve Wozniak",
@@ -183,7 +183,7 @@ const questionBank = [
   },
   {
     id: 18,
-    title: "Which of these is NOT a term in the game of Golf?",
+    title: "Which of these is NOT a term in Golf?",
     type: "image",
     options: ["Birdie", "Eagle", "Albatross", "Vulture"],
     correctAnswer: "Vulture",
@@ -192,7 +192,7 @@ const questionBank = [
   {
     id: 19,
     title:
-      "In what country did the first Starbucks open outside of North America?",
+      "In which country did the first Starbucks open outside of North America?",
     type: "image",
     options: ["Japan", "Canada", "England", "Peru"],
     correctAnswer: "Japan",

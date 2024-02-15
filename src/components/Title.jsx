@@ -16,7 +16,7 @@ const Title = () => {
           restDelta: 0.001,
         },
       }}
-      className="flex items-center justify-center mt-4 mb-6"
+      className="flex items-center justify-center mt-4 mb-6 lg:mt-20 lg:mb-8"
     >
       <TitleLetter letter="W" color="#43a9c8" position="12" />
       <TitleLetter letter="O" color="#ec816c" />
@@ -24,7 +24,7 @@ const Title = () => {
       <TitleLetter letter="D" color="#2b5ccd" />
       <TitleLetter letter="L" color="#ec19d7" position="12" />
       <TitleLetter letter="E" color="#ec1947" />
-      <img src="src/assets/plus.svg" width="60" className="" />
+      <img src="src/assets/plus.svg" className="w-[60px] lg:w-[100px]" />
     </motion.div>
   );
 };
