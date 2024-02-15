@@ -21,7 +21,7 @@ const Player = ({ source }) => {
         }
       }}
     >
-      <source src={`../../media/question-soundbites/${source}`} type="audio/mpeg" />
+      <source src={`/src/assets/question-soundbites/${source}`} type="audio/mpeg" />
     </audio>
   );
 };

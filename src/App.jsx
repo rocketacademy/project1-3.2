@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Title />
-      <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col items-center gap-y-4">
         <WordleModule gameState={gameState} setGameState={setGameState} />
         <QuizModule
           lives={lives}

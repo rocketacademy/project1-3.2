@@ -32,7 +32,7 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
           delay: 0.7,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className="w-[22rem] border-[#3C4B85] border-[3px] rounded-md"
+        className="w-[22rem] mt-4 border-[#3C4B85] border-[3px] rounded-md"
       >
         <div
           className={`flex justify-between items-center

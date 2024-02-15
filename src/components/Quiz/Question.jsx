@@ -4,9 +4,9 @@ import { useState } from "react";
 import Player from "./Player";
 
 // Play sound effects on correct and wrong answers
-const correctAnswerSound = new Audio("../../media/correct.mp3");
-const wrongAnswerSound = new Audio("../../media/wrong.mp3");
-const gameOverSound = new Audio("../../media/gameover.mp3");
+const correctAnswerSound = new Audio("src/assets/correct.mp3");
+const wrongAnswerSound = new Audio("src/assets/wrong.mp3");
+const gameOverSound = new Audio("src/assets/gameover.mp3");
 
 const Question = ({
   title,
@@ -107,7 +107,7 @@ const Question = ({
       {type === "soundbite" && <Player source={source} />}
       {type === "image" && (
         <img
-          src={`../../media/question-soundbites/${source}`}
+          src={`/src/assets/question-soundbites/${source}`}
           className="rounded-md w-full"
           alt="image"
         />
