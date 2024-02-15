@@ -21,7 +21,7 @@ const GuessInput = ({ handleSubmitGuess, gameStatus }) => {
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex justify-between">
         <input
           id="guess-input"
           value={tentativeGuess}
@@ -37,9 +37,9 @@ const GuessInput = ({ handleSubmitGuess, gameStatus }) => {
         />
         <button
           type="submit"
-          className="py-2 px-4 ml-8 rounded-md mt-4 hover:bg-sky-800 transition duration-300 ease-in-out bg-sky-700"
+          className="py-2 px-6 ml-8 rounded-md mt-4 hover:bg-sky-800 transition duration-300 ease-in-out bg-sky-700"
         >
-          Submit Guess
+          Submit
         </button>
       </form>
     </motion.div>

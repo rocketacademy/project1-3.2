@@ -42,7 +42,7 @@ const WordleModule = ({ gameState, setGameState }) => {
         delay: 0.4,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className="w-[30rem] mr-12"
+      className="w-[22rem]"
     >
       <GuessResults guesses={guesses} answer={answer} />
       {gameState === "guess" && (
@@ -51,20 +51,7 @@ const WordleModule = ({ gameState, setGameState }) => {
           gameStatus={gameState}
         />
       )}
-      {gameState === "quiz" && (
-        <motion.div
-          className="text-xl mt-8"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.5,
-            delay: 0.1,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
-        >
-          Answer 2 questions to guess the secret word
-        </motion.div>
-      )}
+      
       {gameState === "won" && <WonBanner numOfGuesses={guesses.length} />}
       {gameState === "lost" && <LostBanner answer={answer} />}
     </motion.div>

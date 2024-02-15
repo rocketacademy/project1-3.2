@@ -9,10 +9,10 @@ const WonBanner = ({ numOfGuesses }) => {
         duration: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className="fixed inset-0 w-[300px] h-[300px] mx-auto my-auto rounded-md bg-green-800 flex flex-col items-center justify-evenly px-8 py-10 text-xl"
+      className="fixed inset-0 w-[250px] h-[250px] mx-auto my-auto rounded-md bg-green-800 flex flex-col items-center justify-center gap-y-4 text-md"
     >
       <div>
-        <img src="../../public/win.svg" alt="win image" width={120} />
+        <img src="/win.svg" alt="win image" width={120} />
       </div>
       <div>
         Got it in {""}{" "}
@@ -20,7 +20,7 @@ const WonBanner = ({ numOfGuesses }) => {
           {numOfGuesses === 1 ? "1 guess" : `${numOfGuesses} guesses`}
         </strong>
       </div>
-      <p className="text-base">Refresh the page to play again.</p>
+      <p className="text-sm">Refresh the page to play again.</p>
 
       {/* <button
         onClick={handleRestart}

@@ -32,12 +32,11 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
           delay: 0.7,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className="w-[30rem] border-[#3C4B85] border-[3px] rounded-md mx-auto"
+        className="w-[22rem] border-[#3C4B85] border-[3px] rounded-md"
       >
         <div
-          className={`flex ${
-            gameState === "quiz" ? "justify-between" : "justify-end"
-          } bg-[#263056] rounded-t px-8 py-4`}
+          className={`flex justify-between items-center
+         bg-[#263056] rounded-t px-8 py-4`}
         >
           {gameState === "quiz" && (
             <p className="text-left text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
@@ -47,11 +46,18 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
               {currentQuestionIndex + 1} / 2
             </p>
           )}
+          {(gameState === "guess" ||
+            gameState === "won" ||
+            gameState === "lost") && (
+            <p className="text-left text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out font-semibold">
+              Guess the word
+            </p>
+          )}
           {lives ? (
             <HeartContainer lives={lives} />
           ) : (
-            <div className="fade my-auto text-red-500 font-semibold tracking-wider">
-              NO LIVES LEFT !
+            <div className="fade my-auto text-red-500 font-semibold">
+              No Lives Left !
             </div>
           )}
         </div>
@@ -67,9 +73,6 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
             gameQuestions={gameQuestions}
             setGameQuestions={setGameQuestions}
           />
-        )}
-        {gameState === "guess" && (
-          <div className="mt-[50%] text-xl">Guess the secret word!</div>
         )}
       </motion.div>
     </>
