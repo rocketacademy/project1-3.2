@@ -16,7 +16,7 @@ const Title = () => {
           restDelta: 0.001,
         },
       }}
-      className="flex items-center justify-center mt-4 mb-6 lg:mt-20 lg:mb-8"
+      className="flex items-center justify-center mt-4 mb-6 lg:mt-10 lg:mb-8"
     >
       <TitleLetter letter="W" color="#43a9c8" position="12" />
       <TitleLetter letter="O" color="#ec816c" />

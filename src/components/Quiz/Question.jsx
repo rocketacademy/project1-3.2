@@ -103,14 +103,15 @@ const Question = ({
           -1
         </div>
       )}
-      <h3 className="text-md font-semibold p-1 text-left mt-2 mb-2 lg:text-lg">{title}</h3>
+      <h3 className="text-md font-semibold p-1 text-left mt-2 mb-2 lg:text-lg">
+        {title}
+      </h3>
       {type === "soundbite" && <Player source={source} />}
       {type === "image" && (
         <img
           src={`/src/assets/question-soundbites/${source}`}
           className="rounded-md w-3/4 mb-2"
           alt="image"
-
         />
       )}
       <div className="flex flex-col my-2">

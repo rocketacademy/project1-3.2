@@ -39,10 +39,10 @@ const WordleModule = ({ gameState, setGameState }) => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         duration: 0.5,
-        delay: 0.4,
+        delay: 0.7,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      className="w-[22rem] lg:w-[40%]"
+      className="w-[22rem] mt-4 lg:w-[40%] lg:mt-0"
     >
       <GuessResults guesses={guesses} answer={answer} />
       {gameState === "guess" && (

@@ -29,10 +29,10 @@ const QuizModule = ({ setGameState, gameState, lives, setLives }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 0.5,
-          delay: 0.7,
+          delay: 0.4,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className="w-[22rem] mt-4 border-[#3C4B85] border-[3px] rounded-md lg:mt-0 lg:w-[40%]"
+        className="w-[22rem] border-[#3C4B85] border-[3px] rounded-md lg:mt-0 lg:w-[40%]"
       >
         <div
           className={`flex justify-between items-center
