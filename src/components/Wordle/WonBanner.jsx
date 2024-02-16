@@ -13,7 +13,7 @@ const WonBanner = ({ numOfGuesses }) => {
         className="fixed inset-0 w-[250px] h-[250px] mx-auto my-auto rounded-md bg-green-800 flex flex-col items-center justify-center gap-y-4 text-md z-10"
       >
         <div>
-          <img src="/src/assets/win.svg" alt="win image" width={120} />
+          <img src="/assets/win.svg" alt="win image" width={120} />
         </div>
         <div>
           Got it in {""}{" "}

@@ -18,13 +18,16 @@ const Title = () => {
       }}
       className="flex items-center justify-center mt-4 mb-6 lg:mt-10 lg:mb-8"
     >
-      <TitleLetter letter="W" color="#43a9c8" position="12" />
+      <TitleLetter letter="W" color="#43a9c8" position={8} />
       <TitleLetter letter="O" color="#ec816c" />
-      <TitleLetter letter="R" color="#43a9c8" position="12" />
+      <TitleLetter letter="R" color="#43a9c8" position={8} />
       <TitleLetter letter="D" color="#2b5ccd" />
-      <TitleLetter letter="L" color="#ec19d7" position="12" />
+      <TitleLetter letter="L" color="#ec19d7" position={8} />
       <TitleLetter letter="E" color="#ec1947" />
-      <img src="src/assets/plus.svg" className="w-[60px] lg:w-[100px]" />
+      <img
+        src="/assets/plus.svg"
+        className="w-[80px] -ml-2 -mb-2 lg:w-[100px] lg:-mb-2 lg:-ml-4"
+      />
     </motion.div>
   );
 };

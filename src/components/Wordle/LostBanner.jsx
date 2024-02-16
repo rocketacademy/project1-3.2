@@ -13,7 +13,7 @@ const LostBanner = ({ answer }) => {
         className="fixed inset-0 w-[250px] h-[250px] mx-auto my-auto rounded-md bg-red-800 flex flex-col items-center justify-center gap-y-4 text-md z-10"
       >
         <div>
-          <img src="/src/assets/lose.svg" alt="lose image" width={100} />
+          <img src="/assets/lose.svg" alt="lose image" width={100} />
         </div>
         <div>
           The answer is <strong>{answer}</strong>.
