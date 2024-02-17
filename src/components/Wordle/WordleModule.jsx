@@ -2,7 +2,7 @@ import GuessInput from "./GuessInput";
 import GuessResults from "./GuessResults";
 import WORDS from "../../words";
 import { useState } from "react";
-import { NUM_OF_GUESSES_ALLOWED } from "../../../utilities";
+import { NUM_OF_GUESSES_ALLOWED } from "../../settings";
 import WonBanner from "./WonBanner";
 import LostBanner from "./LostBanner";
 import { motion } from "framer-motion";

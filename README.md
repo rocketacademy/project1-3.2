@@ -15,3 +15,11 @@ To see the rendered output please open http://localhost:5173 in the browser of y
 
 The page will reload when you make changes.
 You may also see any lint errors in the console.
+
+public
+└── question-files
+    ├── q1.mp3
+    ├── other question specific image/mp3 files
+└── assets
+    ├── plus.svg
+    ├── other svg/mp3 files

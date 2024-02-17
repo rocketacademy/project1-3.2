@@ -4,12 +4,13 @@ import Title from "./components/Title";
 import { useState } from "react";
 import WordleModule from "./components/Wordle/WordleModule";
 import Help from "./components/Help";
+import { NUM_OF_LIVES } from "./settings";
 
 function App() {
   const [gameState, setGameState] = useState("quiz"); // quiz, guess, won, lost
 
   // Use state to store no. of lives
-  const [lives, setLives] = useState(4);
+  const [lives, setLives] = useState(NUM_OF_LIVES);
 
   return (
     <>

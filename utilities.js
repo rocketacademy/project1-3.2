@@ -27,9 +27,6 @@ export const shuffleQuestions = (questions) => {
   return questions;
 };
 
-// Generate 6 rows for wordle game
-export const NUM_OF_GUESSES_ALLOWED = 6;
-
 export const range = (start, end, step = 1) => {
   let output = [];
   if (typeof end === "undefined") {

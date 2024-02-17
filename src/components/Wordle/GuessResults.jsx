@@ -1,5 +1,6 @@
 import Guess from "./Guess";
-import { NUM_OF_GUESSES_ALLOWED, range } from "../../../utilities";
+import { range } from "../../../utilities";
+import { NUM_OF_GUESSES_ALLOWED } from "../../settings";
 
 const GuessResults = ({ guesses, answer }) => {
   return (
@@ -11,4 +12,3 @@ const GuessResults = ({ guesses, answer }) => {
   );
 };
 export default GuessResults;
-
