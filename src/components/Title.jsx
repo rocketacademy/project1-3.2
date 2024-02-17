@@ -25,7 +25,7 @@ const Title = () => {
       <TitleLetter letter="L" color="#ec19d7" position={8} />
       <TitleLetter letter="E" color="#ec1947" />
       <img
-        src="/assets/plus.svg"
+        src="/ra-project1-frontend/assets/plus.svg"
         className="w-[80px] -ml-2 -mb-2 lg:w-[100px] lg:-mb-2 lg:-ml-4"
       />
     </motion.div>

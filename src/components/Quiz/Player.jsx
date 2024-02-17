@@ -20,7 +20,10 @@ const Player = ({ source }) => {
         }
       }}
     >
-      <source src={`/assets/question-files/${source}`} type="audio/mpeg" />
+      <source
+        src={`/ra-project1-frontend/assets/question-files/${source}`}
+        type="audio/mpeg"
+      />
     </audio>
   );
 };

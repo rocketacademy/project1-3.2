@@ -1,14 +1,30 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+// import { letters } from "../../../utilities";
 
 const GuessInput = ({ handleSubmitGuess, gameStatus }) => {
   // state to hold user's guess
   const [tentativeGuess, setTentativeGuess] = useState("");
 
+  // // state to hold guessed letters
+  // const [guessedLetters, setGuessedLetters] = useState([]);
+
+  // const updateGuessedLetters = (guess) => {
+  //   const nextGuessedLetters = [...guessedLetters, ...guess];
+  //   console.log(`next`, nextGuessedLetters);
+  //   // const updatedLetters = guessedLetters.map((letter) =>
+  //   //   guessed.includes(letter) ? "" : letter
+  //   // );
+  //   // console.log(updatedLetters);
+  //   // console.log(updatedLetters.join(""));
+  //   // setGuessedLetters('updatedLetters');
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleSubmitGuess(tentativeGuess);
     setTentativeGuess("");
+    // updateGuessedLetters(tentativeGuess);
   };
 
   return (
@@ -21,6 +37,7 @@ const GuessInput = ({ handleSubmitGuess, gameStatus }) => {
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
+      {/* <div>{123}</div> */}
       <form onSubmit={handleSubmit} className="flex justify-between">
         <input
           id="guess-input"
