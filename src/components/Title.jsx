@@ -16,7 +16,7 @@ const Title = () => {
           restDelta: 0.001,
         },
       }}
-      className="flex items-center justify-center mt-4 mb-6 ml-4 lg:mt-10 lg:ml-0 lg:mb-8"
+      className="flex items-center justify-center mt-4 mb-2 ml-4 lg:mt-10 lg:ml-0 lg:mb-8"
     >
       <TitleLetter letter="W" color="#43a9c8" position={8} />
       <TitleLetter letter="O" color="#ec816c" />
@@ -26,7 +26,7 @@ const Title = () => {
       <TitleLetter letter="E" color="#ec1947" />
       <img
         src="/ra-project1-frontend/assets/plus.svg"
-        className="w-[80px] -ml-4 -mb-2 lg:w-[100px] lg:-mb-2 lg:-ml-4"
+        className="w-[60px] -ml-2 -mb-2 lg:w-[100px] lg:-mb-2 lg:-ml-4"
       />
     </motion.div>
   );
