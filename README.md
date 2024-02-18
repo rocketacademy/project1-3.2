@@ -22,7 +22,7 @@ This project was created using with Vite. In the project directory, run the foll
 
 To see the rendered output, open http://localhost:5173 in the browser of your choice.
 
-## Getting Started
+## How To Play
 - A random 5-letter mystery word is chosen at random. The player has 6 guesses to identify the mystery word.
 - The player also has 4 lives 💗 To earn a guess at the mystery word without losing a life, 2 trivia questions must be answered correctly.
 - If a question is answered incorrectly, the player gets to earn a guess at the mystery word at the cost of 1 life 💗
