@@ -45,12 +45,10 @@ const WordleModule = ({ gameState, setGameState }) => {
       className="w-[22rem] mt-4 lg:w-[40%] lg:mt-0"
     >
       <GuessResults guesses={guesses} answer={answer} />
-      {gameState === "guess" && (
-        <GuessInput
-          handleSubmitGuess={handleSubmitGuess}
-          gameStatus={gameState}
-        />
-      )}
+      <GuessInput
+        handleSubmitGuess={handleSubmitGuess}
+        gameState={gameState}
+      />
       {gameState === "won" && <WonBanner numOfGuesses={guesses.length} />}
       {gameState === "lost" && <LostBanner answer={answer} />}
     </motion.div>
