@@ -7,7 +7,7 @@ Wordle+ is a Wordle and trivia quiz mashup for people who enjoy picking up gener
 Wordle+ is built with React, TailwindCSS, Vite and Framer Motion.
 
 ## Wireframes
-<img src="./public/preview-1.png" alt="Preview of Wordle+" width="400"/>
+<img src="/ra-project1-frontend/assets/preview-1.png" alt="Preview of Wordle+" width="400"/>
 
 ## Getting Started
 Fork and clone the repo to your local machine.
