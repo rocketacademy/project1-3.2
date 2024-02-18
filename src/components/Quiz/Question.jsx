@@ -13,7 +13,7 @@ const gameOverSound = new Audio("/ra-project1-frontend/assets/gameover.mp3");
 const Question = ({
   title,
   options,
-  type = "trivia",
+  type = "image",
   source = null,
   correctAnswer,
   currentQuestionIndex,
@@ -112,7 +112,7 @@ const Question = ({
       {type === "image" && (
         <img
           src={`/ra-project1-frontend/assets/question-files/${source}`}
-          className="rounded-md w-3/4 mb-2"
+          className="rounded-md w-4/4 mb-2 lg:w-3/4"
           alt="image"
         />
       )}

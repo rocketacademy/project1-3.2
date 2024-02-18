@@ -46,7 +46,7 @@ const GuessInput = ({ handleSubmitGuess, gameState }) => {
       }}
     >
       <div
-        className={`mt-4 max-w-[25ch] mx-auto leading-7 ${
+        className={`mt-4 max-w-[25ch] mx-auto ${
           gameState !== "guess" ? "text-gray-600" : "text-gray-200"
         }`}
       >
