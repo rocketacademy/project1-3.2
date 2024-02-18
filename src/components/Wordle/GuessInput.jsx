@@ -46,12 +46,12 @@ const GuessInput = ({ handleSubmitGuess, gameState }) => {
       }}
     >
       <div
-        className={`mt-4 max-w-[25ch] mx-auto ${
+        className={`mt-4 max-w-[25ch] mx-auto text-lg ${
           gameState !== "guess" ? "text-gray-600" : "text-gray-200"
         }`}
       >
         <span
-          className={gameState !== "guess" ? "text-gray-600" : "text-gray-400"}
+          className={`${gameState !== "guess" ? "text-gray-600" : "text-gray-500"}`}
         >
           Remaining letters:
         </span>
