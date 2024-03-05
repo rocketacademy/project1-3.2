@@ -16,7 +16,7 @@ const GuessInput = ({ handleSubmitGuess, gameState }) => {
     const guessedLettersArray = guess.split("");
     const nextGuessedLetters = [...guessedLetters, ...guessedLettersArray];
     setGuessedLetters(nextGuessedLetters);
-    const remaining = allLetters.filter((x) => !nextGuessedLetters.includes(x));
+    const remaining = allLetters.filter((x) => !nextGuessedLetters.includes(x)); // change to Set O(1)
     setAllLetters(remaining);
   };
 

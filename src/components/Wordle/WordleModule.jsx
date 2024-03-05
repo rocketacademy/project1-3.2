@@ -13,7 +13,6 @@ const gameOverSound = new Audio("/ra-project1-frontend/assets/gameover.mp3");
 
 // Randomly select a word and set it to state
 const answer = WORDS[Math.floor(Math.random() * WORDS.length)];
-console.log("answer", answer);
 
 const WordleModule = ({ gameState, setGameState }) => {
   // state to hold user's guesses
