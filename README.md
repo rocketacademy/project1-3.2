@@ -1,8 +1,8 @@
-# Rocket Academy Coding Bootcamp: Project 1 - Frontend App
+# priceQuery
 
-https://bc.rocketacademy.co/1-frontend/1.p-frontend-app
+A simple app to keep track of the market price of any asset on the market!
 
-## Available Scripts
+## 
 
 This project was created using with Vitejs. In the project directory, please run the following commands:
 
