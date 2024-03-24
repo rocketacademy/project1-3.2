@@ -6,9 +6,9 @@ https://bc.rocketacademy.co/1-frontend/1.p-frontend-app
 
 This project was created using with Vitejs. In the project directory, please run the following commands:
 
-`bun install` or `npm install`
+`bun install`
 
-`bunx vite`/`bun run dev` or `npx vite`/`npm run dev`
+`bunx vite`/`bun run dev`
 
 The second command will run the app
 To see the rendered output please open http://localhost:5173/project1-3.2/ in the browser of your choice.
