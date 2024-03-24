@@ -4,7 +4,7 @@ import Typography from "@mui/joy/Typography";
 import Input from "./input-box";
 import OutputCard from "./output-card";
 import { QueryButton, PlusMinusButton } from "./buttons";
-import doodle from "/logo.svg";
+import logo from "/logo.svg";
 import polygon from "/polygonio.svg";
 import "./App.css";
 
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <img className="logo" src={doodle} alt="doodle-chart" />
+      <img className="logo" src={logo} alt="doodle-chart" />
       <Typography
         level="h1"
         my="4rem"
